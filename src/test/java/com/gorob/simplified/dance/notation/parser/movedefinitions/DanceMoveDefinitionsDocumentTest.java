@@ -4,7 +4,7 @@ import com.gorob.simplified.dance.notation.AbstractTest;
 import com.gorob.simplified.dance.notation.model.IBodyMovement;
 import com.gorob.simplified.dance.notation.model.IBodyPartMovement;
 import com.gorob.simplified.dance.notation.model.IDanceMoveDefinition;
-import com.gorob.simplified.dance.notation.model.IDanceMoveVariantDefintion;
+import com.gorob.simplified.dance.notation.model.IDanceMoveVariantDefinition;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
 import org.junit.Test;
 
@@ -31,7 +31,7 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
 
         assertEquals(2, danceMoveDefinition1.getDanceMoveVariantDefinitions().size());
 
-        IDanceMoveVariantDefintion danceMoveVariantDefintion1 = danceMoveDefinition1.getDanceMoveVariantDefinitions().get(0);
+        IDanceMoveVariantDefinition danceMoveVariantDefintion1 = danceMoveDefinition1.getDanceMoveVariantDefinitions().get(0);
         assertEquals("HeelHeelLeftWithHands", danceMoveVariantDefintion1.getId());
         assertEquals("Heel, Heel (LF) with Hands", danceMoveVariantDefintion1.getDefaultName());
 
@@ -96,7 +96,7 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
 
 
 
-        IDanceMoveVariantDefintion danceMoveVariantDefintion2 = danceMoveDefinition1.getDanceMoveVariantDefinitions().get(1);
+        IDanceMoveVariantDefinition danceMoveVariantDefintion2 = danceMoveDefinition1.getDanceMoveVariantDefinitions().get(1);
         assertEquals("HeelHeelRightWithHands", danceMoveVariantDefintion2.getId());
         assertEquals("Heel, Heel (RF) with Hands", danceMoveVariantDefintion2.getDefaultName());
 

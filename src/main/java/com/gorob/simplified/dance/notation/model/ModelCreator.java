@@ -1,5 +1,8 @@
 package com.gorob.simplified.dance.notation.model;
 
+import com.gorob.simplified.dance.notation.model.dance.MediaRef;
+import com.gorob.simplified.dance.notation.model.dance.MediaService;
+import com.gorob.simplified.dance.notation.model.dance.MediaType;
 import com.gorob.simplified.dance.notation.model.movedefinition.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
 
@@ -33,6 +36,10 @@ public class ModelCreator {
 
     public static MovementAttributes createMovementAttributes(Direction direction, Course course, Distance distance, Rotation rotation){
         return new MovementAttributes(direction, course, distance, rotation);
+    }
+
+    public static MediaRef createMediaReference(MediaService mediaService, MediaType mediaType, String ref) {
+        return new MediaRef(mediaService, mediaType, ref);
     }
 
     private static DanceMoveDefinition createDanceMoveDefinition(String id, String defaultName){

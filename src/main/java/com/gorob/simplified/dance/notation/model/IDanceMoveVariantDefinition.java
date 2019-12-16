@@ -2,7 +2,7 @@ package com.gorob.simplified.dance.notation.model;
 
 import java.util.List;
 
-public interface IDanceMoveVariantDefintion {
+public interface IDanceMoveVariantDefinition {
     String getId();
     String getDefaultName();
 

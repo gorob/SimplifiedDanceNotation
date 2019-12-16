@@ -64,14 +64,14 @@ public class DanceMoveDefinitionsDocument extends AbstractDocumentWrapper {
         String defaultName = getAttributeValue(danceMoveDefinitionNode, ATTRIBUTE_NAME_DANCE_MOVE_DEFINITION_DEFAULT_NAME);
         DanceMoveDefinition danceMoveDefinition = ModelCreator.createDanceMoveDefinition(id, defaultName);
 
-        List<IDanceMoveVariantDefintion> danceMoveVariantDefinitions = getNodesByName(danceMoveDefinitionNode, NODE_NAME_DANCE_MOVE_VARIANT_DEFINITION).stream().map(danceMoveVariantDefintionNode -> mapDanceMoveVariantDefinition(danceMoveVariantDefintionNode)).collect(Collectors.toList());
+        List<IDanceMoveVariantDefinition> danceMoveVariantDefinitions = getNodesByName(danceMoveDefinitionNode, NODE_NAME_DANCE_MOVE_VARIANT_DEFINITION).stream().map(danceMoveVariantDefintionNode -> mapDanceMoveVariantDefinition(danceMoveVariantDefintionNode)).collect(Collectors.toList());
 
         danceMoveVariantDefinitions.forEach(danceMoveVariantDefinition -> danceMoveDefinition.addDanceMoveVariantDefinition(danceMoveVariantDefinition));
 
         return danceMoveDefinition;
     }
 
-    private IDanceMoveVariantDefintion mapDanceMoveVariantDefinition(Node danceMoveVariantDefinitionNode) {
+    private IDanceMoveVariantDefinition mapDanceMoveVariantDefinition(Node danceMoveVariantDefinitionNode) {
         String id = getAttributeValue(danceMoveVariantDefinitionNode, ATTRIBUTE_NAME_DANCE_MOVE_VARIANT_DEFINITION_ID);
         String defaultName = getAttributeValue(danceMoveVariantDefinitionNode, ATTRIBUTE_NAME_DANCE_MOVE_VARIANT_DEFINITION_DEFAULT_NAME);
         DanceMoveVariantDefinition danceMoveVariantDefinition = ModelCreator.createDanceMoveVariantDefinition(id, defaultName);

@@ -5,5 +5,5 @@ import java.util.List;
 public interface IDanceMoveDefinition {
     String getId();
     String getDefaultName();
-    List<IDanceMoveVariantDefintion> getDanceMoveVariantDefinitions();
+    List<IDanceMoveVariantDefinition> getDanceMoveVariantDefinitions();
 }

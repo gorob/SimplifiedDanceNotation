@@ -26,7 +26,7 @@ public abstract class AbstractTest {
         this.tmc = new TestModelCreator();
     }
 
-    private File getTempRoot(){
+    protected File getTempRoot(){
         return getTemporaryFolder().getRoot();
     }
 
