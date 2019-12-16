@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<DanceMoveDefinitions>
+
+    <DanceMoveDefinition id="RunBack" defaultName="Run back">
+
+        <DanceMoveVariantDefinition id="RunBackThreeStepsStartWithRF" defaultName="Run back (3 steps, start with RF)">
+            <Movement countNr="1">
+                <SubMovement bodyPart="right_foot" directionXY="backward" courseXY="linear" distanceXY="mini" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="left_foot" directionXY="backward" courseXY="linear" distanceXY="mini" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+
+            <Movement countNr="3">
+                <SubMovement bodyPart="right_foot" directionXY="backward" courseXY="linear" distanceXY="mini" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+        </DanceMoveVariantDefinition>
+
+    </DanceMoveDefinition>
+
+</DanceMoveDefinitions>

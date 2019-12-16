@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<SimplifiedDanceNotation>
+    <Meta>
+        <Choreo title="Shout Shout" creator="Yvonne Zielonka" year="2013">
+            <MediaRef serviceName="Youtube" type="video" link="https://www.youtube.com/watch?v=rouN3dS0A60" />
+        </Choreo>
+
+        <Music title="Shout Shout (Knock Yourself Out)" creator="Rocky Sharpe &amp; The Replays" year="2013">
+            <MediaRef serviceName="AmazonMusic" type="music" link="https://music.amazon.de/albums/B00AVH7D0M?trackAsin=B00AVH7H2Q&amp;ref=dm_sh_Ez04ftdT9VtzX7rxs97sOMqlH" />
+        </Music>
+    </Meta>
+
+    <LineDance walls="2" count="32" startCount="32" timeSignature="4/4">
+        <DanceMoves>
+            <DanceMove definitionRefId="HeelHeelRightWithHands"/>
+            <DanceMove definitionRefId="BehindSideCrossLeftDirection"/>
+            <DanceMove definitionRefId="HeelHeelLeftWithHands"/>
+            <DanceMove definitionRefId="BehindSideCrossRightDirection"/>
+            <DanceMove definitionRefId="CharlestonStepArcStartWithRF"/>
+            <DanceMove definitionRefId="ShuffleForwardStartWithRF"/>
+            <DanceMove definitionRefId="MamboForwardStartWithLF"/>
+            <DanceMove definitionRefId="RunBackThreeStepsStartWithRF"/>
+            <DanceMove definitionRefId="CoasterStepStartWithLF"/>
+            <DanceMove definitionRefId="StepTurnQuarterLeftStartWithRF"/>
+            <DanceMove definitionRefId="StepTurnQuarterLeftStartWithRF"/>
+            <DanceMove definitionRefId="JazzBoxStartWithRF"/>
+            <DanceMove definitionRefId="HeelToeHeelSwivelsRightAndLeft"/>
+        </DanceMoves>
+    </LineDance>
+
+</SimplifiedDanceNotation>

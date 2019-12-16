@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<DanceMoveDefinitions>
+
+    <DanceMoveDefinition id="HeelHeel" defaultName="Heel, Heel">
+
+        <DanceMoveVariantDefinition id="HeelHeelLeftWithHands" defaultName="Heel, Heel (LF) with Hands">
+            <Movement countNr="1">
+                <SubMovement bodyPart="left_foot" directionXY="left_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
+                <SubMovement bodyPart="left_hand" directionXY="left_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                <SubMovement bodyPart="right_hand" directionXY="left_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+            </Movement>
+
+            <Movement countNr="1">
+                <SubMovement bodyPart="left_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="raised" />
+                <SubMovement bodyPart="left_hand" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="close" courseZ="linear" distanceZ="none" rotationZ="none" weightOnFloorEnd="none"/>
+                <SubMovement bodyPart="right_hand" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="close" courseZ="linear" distanceZ="none" rotationZ="none" weightOnFloorEnd="none"/>
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="left_foot" directionXY="left_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
+                <SubMovement bodyPart="left_hand" directionXY="left_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                <SubMovement bodyPart="right_hand" directionXY="left_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="left_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="raised" />
+                <SubMovement bodyPart="left_hand" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="close" courseZ="linear" distanceZ="none" rotationZ="none" weightOnFloorEnd="none"/>
+                <SubMovement bodyPart="right_hand" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="close" courseZ="linear" distanceZ="none" rotationZ="none" weightOnFloorEnd="none"/>
+            </Movement>
+        </DanceMoveVariantDefinition>
+
+        <DanceMoveVariantDefinition id="HeelHeelRightWithHands" defaultName="Heel, Heel (RF) with Hands">
+            <Movement countNr="1">
+                <SubMovement bodyPart="right_foot" directionXY="right_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
+                <SubMovement bodyPart="left_hand" directionXY="right_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                <SubMovement bodyPart="right_hand" directionXY="right_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+            </Movement>
+
+            <Movement countNr="1">
+                <SubMovement bodyPart="right_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="raised" />
+                <SubMovement bodyPart="left_hand" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="close" courseZ="linear" distanceZ="none" rotationZ="none" weightOnFloorEnd="none"/>
+                <SubMovement bodyPart="right_hand" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="close" courseZ="linear" distanceZ="none" rotationZ="none" weightOnFloorEnd="none"/>
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="right_foot" directionXY="right_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
+                <SubMovement bodyPart="left_hand" directionXY="right_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                <SubMovement bodyPart="right_hand" directionXY="right_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="right_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="raised" />
+                <SubMovement bodyPart="left_hand" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="close" courseZ="linear" distanceZ="none" rotationZ="none" weightOnFloorEnd="none"/>
+                <SubMovement bodyPart="right_hand" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="close" courseZ="linear" distanceZ="none" rotationZ="none" weightOnFloorEnd="none"/>
+            </Movement>
+        </DanceMoveVariantDefinition>
+
+    </DanceMoveDefinition>
+
+</DanceMoveDefinitions>

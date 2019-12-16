@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rootNode>
+    <childNode1 attr1="aaa1" attr2="bbb1">Value1</childNode1>
+    <CHILDNODE2 attr3="aaa2" attr4="bbb2">Value2</CHILDNODE2>
+    <ChildNode1 attr1="aaa3" attr2="bbb3">Value3</ChildNode1>
+    <childNode2 attr3="aaa4" attr4="bbb4">Value4</childNode2>
+    <childNode11 attr5="aaa5" attr6="bbb5">Value5</childNode11>
+</rootNode>

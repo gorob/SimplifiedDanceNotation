@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<DanceMoveDefinitions>
+    
+    <DanceMoveDefinition id="JazzBox" defaultName="Jazz box">
+
+        <DanceMoveVariantDefinition id="JazzBoxStartWithRF" defaultName="Jazz box (start with RF)">
+            <Movement countNr="1">
+                <SubMovement bodyPart="right_foot" directionXY="left_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="left_foot" directionXY="left_backward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+
+            <Movement countNr="3">
+                <SubMovement bodyPart="right_foot" directionXY="right" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+
+            <Movement countNr="4">
+                <SubMovement bodyPart="left_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+        </DanceMoveVariantDefinition>
+
+    </DanceMoveDefinition>
+
+</DanceMoveDefinitions>

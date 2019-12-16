@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<DanceMoveDefinitions>
+
+    <DanceMoveDefinition id="HeelToeHeelSwivels" defaultName="Heel-Toe-Heel Swivels">
+
+        <DanceMoveVariantDefinition id="HeelToeHeelSwivelsRightAndLeft" defaultName="Heel-Toe-Heel Swivels (to the right and back)">
+            <Movement countNr="1">
+                <SubMovement bodyPart="left_foot" directionXY="right" courseXY="none" distanceXY="none" rotationXY="eighth_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_heel" />
+                <SubMovement bodyPart="right_foot" directionXY="right" courseXY="none" distanceXY="none" rotationXY="eighth_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_heel" />
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="left_foot" directionXY="right" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+                <SubMovement bodyPart="right_foot" directionXY="right" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+            </Movement>
+
+            <Movement countNr="3">
+                <SubMovement bodyPart="left_foot" directionXY="right" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+                <SubMovement bodyPart="right_foot" directionXY="right" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+
+            <Movement countNr="4">
+                <SubMovement bodyPart="left_foot" directionXY="left" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_heel" />
+                <SubMovement bodyPart="right_foot" directionXY="left" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_heel" />
+            </Movement>
+
+            <Movement countNr="5">
+                <SubMovement bodyPart="left_foot" directionXY="left" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+                <SubMovement bodyPart="right_foot" directionXY="left" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+            </Movement>
+
+            <Movement countNr="6">
+                <SubMovement bodyPart="left_foot" directionXY="left" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+                <SubMovement bodyPart="right_foot" directionXY="left" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+        </DanceMoveVariantDefinition>
+
+    </DanceMoveDefinition>
+
+</DanceMoveDefinitions>

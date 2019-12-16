@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<DanceMoveDefinitions>
+
+    <DanceMoveDefinition id="StepTurn" defaultName="Step, Turn">
+
+        <DanceMoveVariantDefinition id="StepTurnQuarterLeftStartWithRF" defaultName="Step, Turn quarter left (start with RF)">
+            <Movement countNr="1">
+                <SubMovement bodyPart="right_foot" directionXY="forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="right_foot" directionXY="left" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="none" />
+                <SubMovement bodyPart="left_foot" directionXY="left" courseXY="none" distanceXY="none" rotationXY="quarter_turn" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+        </DanceMoveVariantDefinition>
+
+    </DanceMoveDefinition>
+
+</DanceMoveDefinitions>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<DanceMoveDefinitions>
+
+    <DanceMoveDefinition id="BehindSideCross" defaultName="Behind-Side-Cross">
+
+        <DanceMoveVariantDefinition id="BehindSideCrossLeftDirection" defaultName="Behind-Side-Cross (to the left)">
+            <Movement countNr="1">
+                <SubMovement bodyPart="right_foot" directionXY="left_backward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="left_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+            </Movement>
+
+            <Movement countNr="3">
+                <SubMovement bodyPart="right_foot" directionXY="left_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+        </DanceMoveVariantDefinition>
+
+        <DanceMoveVariantDefinition id="BehindSideCrossRightDirection" defaultName="Behind-Side-Cross (to the right)">
+            <Movement countNr="1">
+                <SubMovement bodyPart="left_foot" directionXY="right_backward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+            </Movement>
+
+            <Movement countNr="2">
+                <SubMovement bodyPart="right_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
+            </Movement>
+
+            <Movement countNr="3">
+                <SubMovement bodyPart="left_foot" directionXY="right_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+            </Movement>
+        </DanceMoveVariantDefinition>
+
+    </DanceMoveDefinition>
+
+</DanceMoveDefinitions>
