@@ -5,8 +5,10 @@ import com.gorob.simplified.dance.notation.model.IDanceMoveDefinition;
 import com.gorob.simplified.dance.notation.model.dance.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.DanceMoveDefinitions;
 import com.gorob.simplified.dance.notation.parser.movedefinitions.DanceMoveDefinitionsParser;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -21,7 +23,7 @@ public class DanceOverviewGeneratorTest extends AbstractTest {
         File dmdFilesFolder = copyFolderToTemp("/definitions", "dmdfiles");
         DanceMoveDefinitions danceMoveDefinitions = new DanceMoveDefinitions(dmdFilesFolder);
 
-        Dance dance = new Dance(2, 32, 32, "4/4");
+        Dance dance = new Dance("Shout Shout", 2, 32, 32, "4/4");
         dance.addChoreographyMetaInfo(new ChoreographyMetaInfo("Shout Shout", "Yvonne Zielonka",
                 2013, new MediaRef(MediaService.YOUTUBE, MediaType.VIDEO, "https://www.youtube.com/watch?v=rouN3dS0A60")));
         dance.addMusicMetaInfo(new MusicMetaInfo("Shout Shout (Knock Yourself Out)", "Rocky Sharpe & The Replays",
@@ -45,6 +47,8 @@ public class DanceOverviewGeneratorTest extends AbstractTest {
 
         new DanceOverviewGenerator().generate(dance, pdfErgFile);
 
-        System.out.println(pdfErgFile.getAbsolutePath());
+        File tmpFile = new File("/tmp", pdfErgFile.getName());
+        FileUtils.copyFile(pdfErgFile, tmpFile);
+        Desktop.getDesktop().open(tmpFile);
     }
 }

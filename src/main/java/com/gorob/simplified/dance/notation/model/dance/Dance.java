@@ -5,18 +5,21 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 public class Dance {
-    private int walls;
+    private String title;
+    private int wall;
     private int count;
     private int startCount;
     private String timeSignature;
     private List<AbstractMediaMetaInfo> mediaMetaInfos;
     private List<IDanceMoveVariantDefinition> danceMoves;
 
-    public Dance(int walls, int count, int startCount, String timeSignature){
-        this.walls = walls;
+    public Dance(String title, int wall, int count, int startCount, String timeSignature){
+        this.title = title;
+        this.wall = wall;
         this.count = count;
         this.startCount = startCount;
         this.timeSignature = timeSignature;
@@ -34,5 +37,18 @@ public class Dance {
 
     public void addMusicMetaInfo(MusicMetaInfo musicMetaInfo){
         getMediaMetaInfos().add(musicMetaInfo);
+    }
+
+    public ChoreographyMetaInfo getChoreographyMetaInfo(){
+        return (ChoreographyMetaInfo)getMediaMetaInfoForType(ChoreographyMetaInfo.class);
+    }
+
+    public MusicMetaInfo getMusicMetaInfo(){
+        return (MusicMetaInfo)getMediaMetaInfoForType(MusicMetaInfo.class);
+    }
+
+    private AbstractMediaMetaInfo getMediaMetaInfoForType(Class clazz){
+        List<AbstractMediaMetaInfo> mediaMetaInfos = getMediaMetaInfos().stream().filter(mediaMetaInfo -> mediaMetaInfo.getClass().equals(clazz)).collect(Collectors.toList());
+        return mediaMetaInfos.isEmpty() ? null : mediaMetaInfos.get(0);
     }
 }
