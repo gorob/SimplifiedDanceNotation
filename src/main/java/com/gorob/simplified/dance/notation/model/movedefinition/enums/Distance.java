@@ -6,14 +6,14 @@ import lombok.Getter;
 public enum Distance {
     NONE(""),
 
-    MINI("mini"),
-    SMALL("small"),
-    MEDIUM("normal"),
-    LARGE("large");
+    MINI("DISTANCE_MINI"),
+    SMALL("DISTANCE_SMALL"),
+    MEDIUM("DISTANCE_NORMAL"),
+    LARGE("DISTANCE_LARGE");
 
-    private String defaultName;
+    private String nameKey;
 
-    Distance(String defaultName){
-        this.defaultName = defaultName;
+    Distance(String nameKey){
+        this.nameKey = nameKey;
     }
 }

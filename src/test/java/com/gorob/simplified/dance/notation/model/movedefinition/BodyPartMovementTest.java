@@ -1,6 +1,7 @@
 package com.gorob.simplified.dance.notation.model.movedefinition;
 
 import com.gorob.simplified.dance.notation.AbstractTest;
+import com.gorob.simplified.dance.notation.messages.Messages;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
 import org.junit.Test;
 

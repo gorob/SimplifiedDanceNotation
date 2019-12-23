@@ -4,17 +4,17 @@ import lombok.Getter;
 
 @Getter
 public enum BodyPart {
-    LEFT_FOOT("LF", "left foot"),
-    RIGHT_FOOT("RF", "right foot"),
+    LEFT_FOOT("BODY_PART_LEFT_FOOT_SHORT", "BODY_PART_LEFT_FOOT"),
+    RIGHT_FOOT("BODY_PART_RIGHT_FOOT_SHORT", "BODY_PART_RIGHT_FOOT"),
 
-    LEFT_HAND("LH", "left hand"),
-    RIGHT_HAND("RH", "right hand");
+    LEFT_HAND("BODY_PART_LEFT_HAND_SHORT", "BODY_PART_LEFT_HAND"),
+    RIGHT_HAND("BODY_PART_RIGHT_HAND_SHORT", "BODY_PART_RIGHT_HAND");
 
-    private String shortName;
-    private String defaultName;
+    private String shortNameKey;
+    private String nameKey;
 
-    BodyPart(String shortName, String defaultName){
-        this.shortName = shortName;
-        this.defaultName = defaultName;
+    BodyPart(String shortNameKey, String nameKey){
+        this.shortNameKey = shortNameKey;
+        this.nameKey = nameKey;
     }
 }

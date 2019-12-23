@@ -6,18 +6,18 @@ import lombok.Getter;
 public enum WeightOnFloor {
     NONE(""),
 
-    RAISED("raised foot"),
-    ON_HEEL("weight on heel"),
-    ON_BALL("weight on ball"),
-    ON_WHOLE("weight on whole foot"),
+    RAISED("WEIGHT_ON_FLOOR_RAISED"),
+    ON_HEEL("WEIGHT_ON_FLOOR_ON_HEEL"),
+    ON_BALL("WEIGHT_ON_FLOOR_ON_BALL"),
+    ON_WHOLE("WEIGHT_ON_FLOOR_ON_WHOLE"),
 
-    TAP_HEEL("tap heel"),
-    TAP_TOE("tap toe"),
-    STOMP("stomp foot");
+    TAP_HEEL("WEIGHT_ON_FLOOR_TAP_HEEL"),
+    TAP_TOE("WEIGHT_ON_FLOOR_TAP_TOE"),
+    STOMP("WEIGHT_ON_FLOOR_STOMP");
 
-    private String defaultName;
+    private String nameKey;
 
-    WeightOnFloor(String defaultName){
-        this.defaultName = defaultName;
+    WeightOnFloor(String nameKey){
+        this.nameKey = nameKey;
     }
 }

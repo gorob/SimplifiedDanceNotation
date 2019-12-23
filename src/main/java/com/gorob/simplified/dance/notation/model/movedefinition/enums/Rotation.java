@@ -4,17 +4,17 @@ import lombok.Getter;
 
 @Getter
 public enum Rotation {
-    NONE(0),
+    NONE(""),
 
-    EIGHTH_TURN( 45),
-    QUARTER_TURN( 90),
-    HALF_TURN( 180),
-    THREE_QUARTER_TURN( 270),
-    FULL_TURN(360);
+    EIGHTH_TURN( "ROTATION_45"),
+    QUARTER_TURN( "ROTATION_90"),
+    HALF_TURN( "ROTATION_180"),
+    THREE_QUARTER_TURN( "ROTATION_270"),
+    FULL_TURN("ROTATION_360");
 
-    private int degree;
+    private String nameKey;
 
-    Rotation(int degree){
-        this.degree = degree;
+    Rotation(String nameKey){
+        this.nameKey = nameKey;
     }
 }

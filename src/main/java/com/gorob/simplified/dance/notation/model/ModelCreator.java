@@ -3,6 +3,7 @@ package com.gorob.simplified.dance.notation.model;
 import com.gorob.simplified.dance.notation.model.dance.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
+import com.gorob.simplified.dance.notation.pdf.BodyPartMovementInstructionText;
 import com.gorob.simplified.dance.notation.pdf.DanceOverview;
 
 import java.io.File;
@@ -79,5 +80,9 @@ public class ModelCreator {
 
     private static BodyMovement createBodyMovement(){
         return new BodyMovement();
+    }
+
+    public static BodyPartMovementInstructionText createBodyPartMovementInstructionText(BodyPartMovement bodyPartMovement) {
+        return new BodyPartMovementInstructionText(bodyPartMovement);
     }
 }

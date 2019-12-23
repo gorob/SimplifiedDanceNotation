@@ -6,12 +6,12 @@ import lombok.Getter;
 public enum Course {
     NONE(""),
 
-    LINEAR("straight"),
-    ARC("within an arc");
+    LINEAR("COURSE_LINEAR"),
+    ARC("COURSE_ARC");
 
-    private String defaultName;
+    private String nameKey;
 
-    Course(String defaultName){
-        this.defaultName = defaultName;
+    Course(String nameKey){
+        this.nameKey = nameKey;
     }
 }

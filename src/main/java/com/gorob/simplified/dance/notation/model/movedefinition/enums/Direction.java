@@ -6,23 +6,23 @@ import lombok.Getter;
 public enum Direction {
     NONE(""),
 
-    FORWARD("forward"),
-    RIGHT_FORWARD("right-forward"),
-    RIGHT("right"),
-    RIGHT_BACKWARD("right-backward"),
-    BACKWARD("backward"),
-    LEFT_BACKWARD("left-backward"),
-    LEFT("left"),
-    LEFT_FORWARD("left-forward"),
+    FORWARD("DIRECTION_FORWARD"),
+    RIGHT_FORWARD("DIRECTION_RIGHT_FORWARD"),
+    RIGHT("DIRECTION_RIGHT"),
+    RIGHT_BACKWARD("DIRECTION_RIGHT_BACKWARD"),
+    BACKWARD("DIRECTION_BACKWARD"),
+    LEFT_BACKWARD("DIRECTION_LEFT_BACKWARD"),
+    LEFT("DIRECTION_LEFT"),
+    LEFT_FORWARD("DIRECTION_LEFT_FORWARD"),
 
-    UP("up"),
-    DOWN("down"),
+    UP("DIRECTION_UP"),
+    DOWN("DIRECTION_DOWN"),
 
-    CLOSE("close");
+    CLOSE("DIRECTION_CLOSE");
 
-    private String defaultName;
+    private String nameKey;
 
-    Direction(String defaultName){
-        this.defaultName = defaultName;
+    Direction(String nameKey){
+        this.nameKey = nameKey;
     }
 }
