@@ -1,10 +1,7 @@
 package com.gorob.simplified.dance.notation.parser.movedefinitions;
 
 import com.gorob.simplified.dance.notation.AbstractTest;
-import com.gorob.simplified.dance.notation.model.IBodyMovement;
-import com.gorob.simplified.dance.notation.model.IBodyPartMovement;
-import com.gorob.simplified.dance.notation.model.IDanceMoveDefinition;
-import com.gorob.simplified.dance.notation.model.IDanceMoveVariantDefinition;
+import com.gorob.simplified.dance.notation.model.movedefinition.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
 import org.junit.Test;
 
@@ -22,24 +19,27 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
         DanceMoveDefinitionsDocument document = new DanceMoveDefinitionsDocument(dmdFile);
         assertEquals(DanceMoveDefinitionsDocument.NODE_NAME_ROOT, document.getMyRootNodeName());
 
-        List<IDanceMoveDefinition> danceMoveDefinitions = document.getDanceMoveDefinitions();
+        List<DanceMoveDefinition> danceMoveDefinitions = document.getDanceMoveDefinitions();
         assertEquals(1, danceMoveDefinitions.size());
 
-        IDanceMoveDefinition danceMoveDefinition1 = danceMoveDefinitions.get(0);
-        assertEquals("HeelHeel", danceMoveDefinition1.getId());
-        assertEquals("Heel, Heel", danceMoveDefinition1.getDefaultName());
+        DanceMoveDefinition danceMoveDefinition = danceMoveDefinitions.get(0);
+        assertEquals("HeelHeel", danceMoveDefinition.getId());
+        assertEquals("Heel, Heel", danceMoveDefinition.getDefaultName());
 
-        assertEquals(2, danceMoveDefinition1.getDanceMoveVariantDefinitions().size());
+        assertEquals(2, danceMoveDefinition.getDanceMoveVariantDefinitions().size());
 
-        IDanceMoveVariantDefinition danceMoveVariantDefintion1 = danceMoveDefinition1.getDanceMoveVariantDefinitions().get(0);
+        DanceMoveVariantDefinition danceMoveVariantDefintion1 = danceMoveDefinition.getDanceMoveVariantDefinitions().get(0);
         assertEquals("HeelHeelLeftWithHands", danceMoveVariantDefintion1.getId());
         assertEquals("Heel, Heel (LF) with Hands", danceMoveVariantDefintion1.getDefaultName());
 
-        List<IBodyMovement> bodyMovementsForCount = danceMoveVariantDefintion1.getBodyMovementsForCount(1);
-        assertEquals(2, bodyMovementsForCount.size());
+        List<BodyMovementGroup> bodyMovementGroups = danceMoveVariantDefintion1.getBodyMovementGroups();
+        assertEquals(2, bodyMovementGroups.size());
 
-        IBodyMovement bodyMovement = bodyMovementsForCount.get(0);
-        assertEquals(1, bodyMovement.getCountNr());
+        BodyMovementGroup bodyMovementGroup = bodyMovementGroups.get(0);
+        assertEquals(1, bodyMovementGroup.getCounts());
+        assertEquals(2, bodyMovementGroup.getBodyMovements().size());
+
+        BodyMovement bodyMovement = bodyMovementGroup.getBodyMovements().get(0);
         assertEquals(3, bodyMovement.getBodyPartMovements().size());
         assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.LEFT_FOOT,
                 Direction.LEFT_FORWARD, Course.LINEAR, Distance.SMALL, Rotation.NONE,
@@ -51,8 +51,35 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
                 Direction.LEFT_FORWARD, Course.LINEAR, Distance.LARGE, Rotation.NONE,
                 Direction.UP, Course.LINEAR, Distance.LARGE, Rotation.NONE, WeightOnFloor.NONE);
 
-        bodyMovement = bodyMovementsForCount.get(1);
-        assertEquals(1, bodyMovement.getCountNr());
+        bodyMovement = bodyMovementGroup.getBodyMovements().get(1);
+        assertEquals(3, bodyMovement.getBodyPartMovements().size());
+        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.LEFT_FOOT,
+                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
+                Direction.NONE, Course.NONE, Distance.NONE, Rotation.NONE, WeightOnFloor.RAISED);
+        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(1), BodyPart.LEFT_HAND,
+                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
+                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE, WeightOnFloor.NONE);
+        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(2), BodyPart.RIGHT_HAND,
+                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
+                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE, WeightOnFloor.NONE);
+
+        bodyMovementGroup = bodyMovementGroups.get(1);
+        assertEquals(1, bodyMovementGroup.getCounts());
+        assertEquals(2, bodyMovementGroup.getBodyMovements().size());
+
+        bodyMovement = bodyMovementGroup.getBodyMovements().get(0);
+        assertEquals(3, bodyMovement.getBodyPartMovements().size());
+        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.LEFT_FOOT,
+                Direction.LEFT_FORWARD, Course.LINEAR, Distance.SMALL, Rotation.NONE,
+                Direction.NONE, Course.NONE, Distance.NONE, Rotation.NONE, WeightOnFloor.TAP_HEEL);
+        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(1), BodyPart.LEFT_HAND,
+                Direction.LEFT_FORWARD, Course.LINEAR, Distance.LARGE, Rotation.NONE,
+                Direction.UP, Course.LINEAR, Distance.LARGE, Rotation.NONE, WeightOnFloor.NONE);
+        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(2), BodyPart.RIGHT_HAND,
+                Direction.LEFT_FORWARD, Course.LINEAR, Distance.LARGE, Rotation.NONE,
+                Direction.UP, Course.LINEAR, Distance.LARGE, Rotation.NONE, WeightOnFloor.NONE);
+
+        bodyMovement = bodyMovementGroup.getBodyMovements().get(1);
         assertEquals(3, bodyMovement.getBodyPartMovements().size());
         assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.LEFT_FOOT,
                 Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
@@ -65,46 +92,18 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
                 Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE, WeightOnFloor.NONE);
 
 
-        bodyMovementsForCount = danceMoveVariantDefintion1.getBodyMovementsForCount(2);
-        assertEquals(2, bodyMovementsForCount.size());
-
-        bodyMovement = bodyMovementsForCount.get(0);
-        assertEquals(2, bodyMovement.getCountNr());
-        assertEquals(3, bodyMovement.getBodyPartMovements().size());
-        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.LEFT_FOOT,
-                Direction.LEFT_FORWARD, Course.LINEAR, Distance.SMALL, Rotation.NONE,
-                Direction.NONE, Course.NONE, Distance.NONE, Rotation.NONE, WeightOnFloor.TAP_HEEL);
-        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(1), BodyPart.LEFT_HAND,
-                Direction.LEFT_FORWARD, Course.LINEAR, Distance.LARGE, Rotation.NONE,
-                Direction.UP, Course.LINEAR, Distance.LARGE, Rotation.NONE, WeightOnFloor.NONE);
-        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(2), BodyPart.RIGHT_HAND,
-                Direction.LEFT_FORWARD, Course.LINEAR, Distance.LARGE, Rotation.NONE,
-                Direction.UP, Course.LINEAR, Distance.LARGE, Rotation.NONE, WeightOnFloor.NONE);
-
-        bodyMovement = bodyMovementsForCount.get(1);
-        assertEquals(2, bodyMovement.getCountNr());
-        assertEquals(3, bodyMovement.getBodyPartMovements().size());
-        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.LEFT_FOOT,
-                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
-                Direction.NONE, Course.NONE, Distance.NONE, Rotation.NONE, WeightOnFloor.RAISED);
-        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(1), BodyPart.LEFT_HAND,
-                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
-                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE, WeightOnFloor.NONE);
-        assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(2), BodyPart.RIGHT_HAND,
-                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
-                Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE, WeightOnFloor.NONE);
-
-
-
-        IDanceMoveVariantDefinition danceMoveVariantDefintion2 = danceMoveDefinition1.getDanceMoveVariantDefinitions().get(1);
+        DanceMoveVariantDefinition danceMoveVariantDefintion2 = danceMoveDefinition.getDanceMoveVariantDefinitions().get(1);
         assertEquals("HeelHeelRightWithHands", danceMoveVariantDefintion2.getId());
         assertEquals("Heel, Heel (RF) with Hands", danceMoveVariantDefintion2.getDefaultName());
 
-        bodyMovementsForCount = danceMoveVariantDefintion2.getBodyMovementsForCount(1);
-        assertEquals(2, bodyMovementsForCount.size());
+        bodyMovementGroups = danceMoveVariantDefintion2.getBodyMovementGroups();
+        assertEquals(2, bodyMovementGroups.size());
 
-        bodyMovement = bodyMovementsForCount.get(0);
-        assertEquals(1, bodyMovement.getCountNr());
+        bodyMovementGroup = bodyMovementGroups.get(0);
+        assertEquals(1, bodyMovementGroup.getCounts());
+        assertEquals(2, bodyMovementGroup.getBodyMovements().size());
+
+        bodyMovement = bodyMovementGroup.getBodyMovements().get(0);
         assertEquals(3, bodyMovement.getBodyPartMovements().size());
         assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.RIGHT_FOOT,
                 Direction.RIGHT_FORWARD, Course.LINEAR, Distance.SMALL, Rotation.NONE,
@@ -116,8 +115,7 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
                 Direction.RIGHT_FORWARD, Course.LINEAR, Distance.LARGE, Rotation.NONE,
                 Direction.UP, Course.LINEAR, Distance.LARGE, Rotation.NONE, WeightOnFloor.NONE);
 
-        bodyMovement = bodyMovementsForCount.get(1);
-        assertEquals(1, bodyMovement.getCountNr());
+        bodyMovement = bodyMovementGroup.getBodyMovements().get(1);
         assertEquals(3, bodyMovement.getBodyPartMovements().size());
         assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.RIGHT_FOOT,
                 Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
@@ -129,12 +127,11 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
                 Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
                 Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE, WeightOnFloor.NONE);
 
+        bodyMovementGroup = bodyMovementGroups.get(1);
+        assertEquals(1, bodyMovementGroup.getCounts());
+        assertEquals(2, bodyMovementGroup.getBodyMovements().size());
 
-        bodyMovementsForCount = danceMoveVariantDefintion2.getBodyMovementsForCount(2);
-        assertEquals(2, bodyMovementsForCount.size());
-
-        bodyMovement = bodyMovementsForCount.get(0);
-        assertEquals(2, bodyMovement.getCountNr());
+        bodyMovement = bodyMovementGroup.getBodyMovements().get(0);
         assertEquals(3, bodyMovement.getBodyPartMovements().size());
         assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.RIGHT_FOOT,
                 Direction.RIGHT_FORWARD, Course.LINEAR, Distance.SMALL, Rotation.NONE,
@@ -146,8 +143,7 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
                 Direction.RIGHT_FORWARD, Course.LINEAR, Distance.LARGE, Rotation.NONE,
                 Direction.UP, Course.LINEAR, Distance.LARGE, Rotation.NONE, WeightOnFloor.NONE);
 
-        bodyMovement = bodyMovementsForCount.get(1);
-        assertEquals(2, bodyMovement.getCountNr());
+        bodyMovement = bodyMovementGroup.getBodyMovements().get(1);
         assertEquals(3, bodyMovement.getBodyPartMovements().size());
         assertBodyPartMovement(bodyMovement.getBodyPartMovements().get(0), BodyPart.RIGHT_FOOT,
                 Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE,
@@ -160,7 +156,7 @@ public class DanceMoveDefinitionsDocumentTest extends AbstractTest {
                 Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE, WeightOnFloor.NONE);
     }
 
-    private void assertBodyPartMovement(IBodyPartMovement bodyPartMovement, BodyPart expectedBodyPart,
+    private void assertBodyPartMovement(BodyPartMovement bodyPartMovement, BodyPart expectedBodyPart,
                                         Direction expectedDirectionXY, Course expectedCourseXY, Distance expectedDistanceXY, Rotation expectedRotationXY,
                                         Direction expectedDirectionZ, Course expectedCourseZ, Distance expectedDistanceZ, Rotation expectedRotationZ,
                                         WeightOnFloor expectedWeightOnFloorEnd){

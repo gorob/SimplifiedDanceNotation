@@ -5,21 +5,29 @@
     <DanceMoveDefinition id="CharlestonStep" defaultName="Charleston step">
 
         <DanceMoveVariantDefinition id="CharlestonStepArcStartWithRF" defaultName="Charleston step (arc, start with RF)">
-            <Movement countNr="1">
-                <SubMovement bodyPart="right_foot" directionXY="forward" courseXY="arc" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_toe" />
-            </Movement>
+            <BodyMovementGroup counts="1">
+                <BodyMovement>
+                    <BodyPartMovement bodyPart="right_foot" directionXY="forward" courseXY="arc" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_toe" />
+                </BodyMovement>
+            </BodyMovementGroup>
 
-            <Movement countNr="2">
-                <SubMovement bodyPart="right_foot" directionXY="backward" courseXY="arc" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
-            </Movement>
+            <BodyMovementGroup counts="1">
+                <BodyMovement>
+                    <BodyPartMovement bodyPart="right_foot" directionXY="backward" courseXY="arc" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+                </BodyMovement>
+            </BodyMovementGroup>
 
-            <Movement countNr="3">
-                <SubMovement bodyPart="left_foot" directionXY="forward" courseXY="arc" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_toe" />
-            </Movement>
+            <BodyMovementGroup counts="1">
+                <BodyMovement>
+                    <BodyPartMovement bodyPart="left_foot" directionXY="forward" courseXY="arc" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_toe" />
+                </BodyMovement>
+            </BodyMovementGroup>
 
-            <Movement countNr="4">
-                <SubMovement bodyPart="left_foot" directionXY="backward" courseXY="arc" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
-            </Movement>
+            <BodyMovementGroup counts="1">
+                <BodyMovement>
+                    <BodyPartMovement bodyPart="left_foot" directionXY="backward" courseXY="arc" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
+                </BodyMovement>
+            </BodyMovementGroup>
         </DanceMoveVariantDefinition>
 
     </DanceMoveDefinition>

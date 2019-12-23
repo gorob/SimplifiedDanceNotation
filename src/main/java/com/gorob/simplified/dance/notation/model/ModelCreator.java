@@ -1,11 +1,11 @@
 package com.gorob.simplified.dance.notation.model;
 
-import com.gorob.simplified.dance.notation.model.dance.MediaRef;
-import com.gorob.simplified.dance.notation.model.dance.MediaService;
-import com.gorob.simplified.dance.notation.model.dance.MediaType;
+import com.gorob.simplified.dance.notation.model.dance.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
+import com.gorob.simplified.dance.notation.pdf.DanceOverview;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class ModelCreator {
@@ -18,14 +18,20 @@ public class ModelCreator {
         return danceMoveDefinition;
     }
 
-    public static DanceMoveVariantDefinition createDanceMoveVariantDefinition(String id, String defaultName, BodyMovement... bodyMovements){
+    public static DanceMoveVariantDefinition createDanceMoveVariantDefinition(String id, String defaultName, BodyMovementGroup... bodyMovementGroups){
         DanceMoveVariantDefinition danceMoveVariantDefinition = createDanceMoveVariantDefinition(id, defaultName);
-        Arrays.stream(bodyMovements).forEach(bodyMovement -> danceMoveVariantDefinition.addBodyMovement(bodyMovement));
+        Arrays.stream(bodyMovementGroups).forEach(bodyMovementGroup -> danceMoveVariantDefinition.addBodyMovementGroup(bodyMovementGroup));
         return danceMoveVariantDefinition;
     }
 
-    public static BodyMovement createBodyMovement(int countNr, BodyPartMovement... bodyPartMovements){
-        BodyMovement bodyMovement = createBodyMovement(countNr);
+    public static BodyMovementGroup createBodyMovementGroup(int counts, BodyMovement... bodyMovementGroups){
+        BodyMovementGroup bodyMovementGroup = createBodyMovementGroup(counts);
+        Arrays.stream(bodyMovementGroups).forEach(bodyMovement -> bodyMovementGroup.addBodyMovement(bodyMovement));
+        return bodyMovementGroup;
+    }
+
+    public static BodyMovement createBodyMovement(BodyPartMovement... bodyPartMovements){
+        BodyMovement bodyMovement = createBodyMovement();
         Arrays.stream(bodyPartMovements).forEach(bodyPartMovement -> bodyMovement.addBodyPartMovement(bodyPartMovement));
         return bodyMovement;
     }
@@ -42,6 +48,23 @@ public class ModelCreator {
         return new MediaRef(mediaService, mediaType, ref);
     }
 
+    public static DanceMoveDefinitions createDanceMoveDefinitions(File dmdFilesFolder){
+        return new DanceMoveDefinitions(dmdFilesFolder);
+    }
+
+    public static Dance createDance(String danceTitle, int wall, int count, int startCount, String timeSignature,
+                                    String choreoTitle, String choreoCreator, int choreoYear,
+                                    String musicTitle, String musicCreator, int musicYear){
+        Dance dance = new Dance(danceTitle, wall, count, startCount, timeSignature);
+        dance.addChoreographyMetaInfo(new ChoreographyMetaInfo(choreoTitle, choreoCreator, choreoYear));
+        dance.addMusicMetaInfo(new MusicMetaInfo(musicTitle, musicCreator, musicYear));
+        return dance;
+    }
+
+    public static DanceOverview createDanceOverview(Dance dance) {
+        return new DanceOverview(dance);
+    }
+
     private static DanceMoveDefinition createDanceMoveDefinition(String id, String defaultName){
         return new DanceMoveDefinition(id, defaultName);
     }
@@ -50,7 +73,11 @@ public class ModelCreator {
         return new DanceMoveVariantDefinition(id, defaultName);
     }
 
-    private static BodyMovement createBodyMovement(int countNr){
-        return new BodyMovement(countNr);
+    public static BodyMovementGroup createBodyMovementGroup(int counts) {
+        return new BodyMovementGroup(counts);
+    }
+
+    private static BodyMovement createBodyMovement(){
+        return new BodyMovement();
     }
 }

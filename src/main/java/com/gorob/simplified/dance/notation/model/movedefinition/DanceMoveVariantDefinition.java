@@ -1,7 +1,6 @@
 package com.gorob.simplified.dance.notation.model.movedefinition;
 
-import com.gorob.simplified.dance.notation.model.IBodyMovement;
-import com.gorob.simplified.dance.notation.model.IDanceMoveVariantDefinition;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -9,23 +8,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
-public class DanceMoveVariantDefinition implements IDanceMoveVariantDefinition {
+@EqualsAndHashCode
+public class DanceMoveVariantDefinition {
     private String id;
     private String defaultName;
 
-    private List<IBodyMovement> bodyMovements;
+    private List<BodyMovementGroup> bodyMovementGroups;
 
     public DanceMoveVariantDefinition(String id, String defaultName){
         this.id = id;
         this.defaultName = defaultName;
-        this.bodyMovements = new ArrayList<>();
+        this.bodyMovementGroups = new ArrayList<>();
     }
 
-    public void addBodyMovement(IBodyMovement bodyMovement){
-        getBodyMovements().add(bodyMovement);
-    }
-
-    public List<IBodyMovement> getBodyMovementsForCount(int countNr){
-        return getBodyMovements().stream().filter(bodyMovement -> bodyMovement.getCountNr()==countNr).collect(Collectors.toList());
+    public void addBodyMovementGroup (BodyMovementGroup bodyMovementGroup){
+        getBodyMovementGroups().add(bodyMovementGroup);
     }
 }

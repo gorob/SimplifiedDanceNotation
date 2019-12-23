@@ -1,17 +1,17 @@
 package com.gorob.simplified.dance.notation.model.movedefinition;
 
-import com.gorob.simplified.dance.notation.model.IDanceMoveDefinition;
-import com.gorob.simplified.dance.notation.model.IDanceMoveVariantDefinition;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public class DanceMoveDefinition implements IDanceMoveDefinition {
+@EqualsAndHashCode
+public class DanceMoveDefinition {
     private String id;
     private String defaultName;
-    private List<IDanceMoveVariantDefinition> danceMoveVariantDefinitions;
+    private List<DanceMoveVariantDefinition> danceMoveVariantDefinitions;
 
     public DanceMoveDefinition(String id, String defaultName){
         this.id = id;
@@ -19,7 +19,7 @@ public class DanceMoveDefinition implements IDanceMoveDefinition {
         this.danceMoveVariantDefinitions = new ArrayList<>();
     }
 
-    public void addDanceMoveVariantDefinition(IDanceMoveVariantDefinition danceMoveVariantDefintion){
+    public void addDanceMoveVariantDefinition(DanceMoveVariantDefinition danceMoveVariantDefintion){
         this.getDanceMoveVariantDefinitions().add(danceMoveVariantDefintion);
     }
 }

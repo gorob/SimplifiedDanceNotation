@@ -19,12 +19,12 @@ public class DanceMoveDefinitionTest extends AbstractTest {
         DanceMoveDefinition danceMoveDefinition = getTmc().createDefaultDanceMoveDefinition();
         assertTrue(danceMoveDefinition.getDanceMoveVariantDefinitions().isEmpty());
 
-        DanceMoveVariantDefinition danceMoveVariantDefinition1 = getTmc().createDefaultDanceMoveVariantDefinition(getTmc().createBodyMovement(1, getTmc().createDefaultBodyPartMovementXY()));
+        DanceMoveVariantDefinition danceMoveVariantDefinition1 = getTmc().createDefaultDanceMoveVariantDefinition(getTmc().createBodyMovementGroup(1, getTmc().createBodyMovement(getTmc().createDefaultBodyPartMovementXY())));
         danceMoveDefinition.addDanceMoveVariantDefinition(danceMoveVariantDefinition1);
         assertEquals(1, danceMoveDefinition.getDanceMoveVariantDefinitions().size());
         assertSame(danceMoveVariantDefinition1, danceMoveDefinition.getDanceMoveVariantDefinitions().get(0));
 
-        DanceMoveVariantDefinition danceMoveVariantDefinition2 = getTmc().createDefaultDanceMoveVariantDefinition(getTmc().createBodyMovement(2, getTmc().createDefaultBodyPartMovementXY()));
+        DanceMoveVariantDefinition danceMoveVariantDefinition2 = getTmc().createDefaultDanceMoveVariantDefinition(getTmc().createBodyMovementGroup(2, getTmc().createBodyMovement(getTmc().createDefaultBodyPartMovementXY())));
         danceMoveDefinition.addDanceMoveVariantDefinition(danceMoveVariantDefinition2);
         assertEquals(2, danceMoveDefinition.getDanceMoveVariantDefinitions().size());
         assertSame(danceMoveVariantDefinition1, danceMoveDefinition.getDanceMoveVariantDefinitions().get(0));

@@ -8,14 +8,13 @@ import static org.junit.Assert.*;
 public class BodyMovementTest extends AbstractTest {
     @Test
     public void testCreate(){
-        BodyMovement bodyMovement = getTmc().createBodyMovement(1);
-        assertEquals(1, bodyMovement.getCountNr());
+        BodyMovement bodyMovement = getTmc().createBodyMovement();
         assertTrue(bodyMovement.getBodyPartMovements().isEmpty());
     }
 
     @Test
     public void testAddMovementPart(){
-        BodyMovement bodyMovement = getTmc().createBodyMovement(1);
+        BodyMovement bodyMovement = getTmc().createBodyMovement();
         assertEquals(0, bodyMovement.getBodyPartMovements().size());
 
         BodyPartMovement defaultBodyPartMovementXY = getTmc().createDefaultBodyPartMovementXY();

@@ -1,8 +1,7 @@
 package com.gorob.simplified.dance.notation.parser.movedefinitions;
 
 import com.gorob.simplified.dance.notation.AbstractTest;
-import com.gorob.simplified.dance.notation.model.IDanceMoveDefinition;
-import com.gorob.simplified.dance.notation.parser.movedefinitions.DanceMoveDefinitionsParser;
+import com.gorob.simplified.dance.notation.model.movedefinition.DanceMoveDefinition;
 import org.junit.Test;
 
 import java.io.File;
@@ -20,7 +19,7 @@ public class DanceMoveDefinitionsParserTest extends AbstractTest {
         int expectedDanceMoveDefinitionsCount = dmdFilesFolder.listFiles().length;
 
         DanceMoveDefinitionsParser parser = new DanceMoveDefinitionsParser();
-        List<IDanceMoveDefinition> danceMoveDefinitions = parser.parseDefinitionFiles(dmdFilesFolder);
+        List<DanceMoveDefinition> danceMoveDefinitions = parser.parseDefinitionFiles(dmdFilesFolder);
 
         assertEquals(expectedDanceMoveDefinitionsCount, danceMoveDefinitions.size());
     }
@@ -30,7 +29,7 @@ public class DanceMoveDefinitionsParserTest extends AbstractTest {
         File dmdFile = copyToTemp("/definitions/HeelHeel.dmd");
 
         DanceMoveDefinitionsParser parser = new DanceMoveDefinitionsParser();
-        List<IDanceMoveDefinition> danceMoveDefinitions = parser.parseSingleDefinitionFile(dmdFile);
+        List<DanceMoveDefinition> danceMoveDefinitions = parser.parseSingleDefinitionFile(dmdFile);
 
         assertEquals(1, danceMoveDefinitions.size());
     }

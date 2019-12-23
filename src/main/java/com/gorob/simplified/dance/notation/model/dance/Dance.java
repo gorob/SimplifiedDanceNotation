@@ -1,6 +1,7 @@
 package com.gorob.simplified.dance.notation.model.dance;
 
-import com.gorob.simplified.dance.notation.model.IDanceMoveVariantDefinition;
+import com.gorob.simplified.dance.notation.model.movedefinition.DanceMoveVariantDefinition;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
+@EqualsAndHashCode
 public class Dance {
     private String title;
     private int wall;
@@ -15,7 +17,7 @@ public class Dance {
     private int startCount;
     private String timeSignature;
     private List<AbstractMediaMetaInfo> mediaMetaInfos;
-    private List<IDanceMoveVariantDefinition> danceMoves;
+    private List<DanceMoveVariantDefinition> danceMoves;
 
     public Dance(String title, int wall, int count, int startCount, String timeSignature){
         this.title = title;
@@ -27,7 +29,7 @@ public class Dance {
         this.danceMoves = new ArrayList<>();
     }
 
-    public void addDanceMove(IDanceMoveVariantDefinition danceMoveVariantDefinition){
+    public void addDanceMove(DanceMoveVariantDefinition danceMoveVariantDefinition){
         this.getDanceMoves().add(danceMoveVariantDefinition);
     }
 
