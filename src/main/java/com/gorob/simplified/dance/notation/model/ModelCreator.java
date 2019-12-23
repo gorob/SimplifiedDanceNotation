@@ -1,8 +1,11 @@
 package com.gorob.simplified.dance.notation.model;
 
+import com.gorob.simplified.dance.notation.messages.Messages;
 import com.gorob.simplified.dance.notation.model.dance.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
+import com.gorob.simplified.dance.notation.pdf.BodyMovementGroupInstructionText;
+import com.gorob.simplified.dance.notation.pdf.BodyMovementInstructionText;
 import com.gorob.simplified.dance.notation.pdf.BodyPartMovementInstructionText;
 import com.gorob.simplified.dance.notation.pdf.DanceOverview;
 
@@ -82,7 +85,15 @@ public class ModelCreator {
         return new BodyMovement();
     }
 
-    public static BodyPartMovementInstructionText createBodyPartMovementInstructionText(BodyPartMovement bodyPartMovement) {
-        return new BodyPartMovementInstructionText(bodyPartMovement);
+    public static BodyMovementGroupInstructionText createBodyMovementGroupInstructionText(BodyMovementGroup bodyMovementGroup, Messages messages) {
+        return new BodyMovementGroupInstructionText(bodyMovementGroup, messages);
+    }
+
+    public static BodyMovementInstructionText createBodyMovementInstructionText(BodyMovement bodyMovement, Messages messages) {
+        return new BodyMovementInstructionText(bodyMovement, messages);
+    }
+
+    public static BodyPartMovementInstructionText createBodyPartMovementInstructionText(BodyPartMovement bodyPartMovement, Messages messages) {
+        return new BodyPartMovementInstructionText(bodyPartMovement, messages);
     }
 }

@@ -8,86 +8,69 @@ import com.gorob.simplified.dance.notation.model.movedefinition.enums.WeightOnFl
 import lombok.AccessLevel;
 import lombok.Getter;
 
-@Getter(AccessLevel.PRIVATE)
-public class BodyPartMovementInstructionText {
-    private static final String INSTRUCTION_TEXT_PART_KEY_AND = "INSTRUCTION_TEXT_PART_AND";
-    private static final String INSTRUCTION_TEXT_PART_KEY_CLIP_BEGIN = "INSTRUCTION_TEXT_PART_CLIP_BEGIN";
-    private static final String INSTRUCTION_TEXT_PART_KEY_CLIP_END = "INSTRUCTION_TEXT_PART_CLIP_END";
-    private static final String INSTRUCTION_TEXT_PART_KEY_AT_THE_END = "INSTRUCTION_TEXT_PART_AT_THE_END";
+import java.util.ArrayList;
+import java.util.List;
 
+@Getter(AccessLevel.PRIVATE)
+public class BodyPartMovementInstructionText extends AbstractInstructionText {
     private BodyPartMovement bodyPartMovement;
 
-    public BodyPartMovementInstructionText(BodyPartMovement bodyPartMovement){
+    public BodyPartMovementInstructionText(BodyPartMovement bodyPartMovement, Messages messages){
+        super(messages);
         this.bodyPartMovement = bodyPartMovement;
     }
 
-    public String getInstructionText(Messages messages){
-        return getBodyPartInstructionText(messages) + getMoveInstructionText(messages) + getWeightOnFloorInstructionText(messages);
+    public String getInstructionText(){
+        return getBodyPartInstructionText() + getMoveInstructionText() + getWeightOnFloorInstructionText();
     }
 
-    private String getMoveInstructionText(Messages messages){
-        return isRotationXY() ? getRotationXYMoveInstructionText(messages) : getNonRotationXYMoveInstructionText(messages);
+    private String getMoveInstructionText(){
+        return isRotationXY() ? getRotationXYMoveInstructionText() : getNonRotationXYMoveInstructionText();
     }
 
-    private String getRotationXYMoveInstructionText(Messages messages){
-        return getRotationXYInstructionText(messages) + getDirectionXYInstructionText(messages);
+    private String getRotationXYMoveInstructionText(){
+        return getRotationXYInstructionText() + getDirectionXYInstructionText();
     }
 
-    private String getNonRotationXYMoveInstructionText(Messages messages){
-        return getDistanceXYInstructionText(messages)
-                + getCourseXYInstructionText(messages)
-                + getDirectionXYInstructionText(messages);
+    private String getNonRotationXYMoveInstructionText(){
+        return getDistanceXYInstructionText()
+                + getCourseXYInstructionText()
+                + getDirectionXYInstructionText();
     }
 
     private boolean isRotationXY(){
         return !getBodyPartMovement().getMovementAttributesXY().getRotation().equals(Rotation.NONE);
     }
 
-    private String getBodyPartInstructionText(Messages messages){
-        return messages.getMessage(getBodyPartMovement().getBodyPart().getShortNameKey());
+    private String getBodyPartInstructionText(){
+        return getMessages().getMessage(getBodyPartMovement().getBodyPart().getShortNameKey());
     }
 
-    private String getDistanceXYInstructionText(Messages messages){
-        return " " + messages.getMessage(getBodyPartMovement().getMovementAttributesXY().getDistance().getNameKey());
+    private String getDistanceXYInstructionText(){
+        return " " + getMessages().getMessage(getBodyPartMovement().getMovementAttributesXY().getDistance().getNameKey());
     }
 
-    private String getCourseXYInstructionText(Messages messages){
+    private String getCourseXYInstructionText(){
         Course course = getBodyPartMovement().getMovementAttributesXY().getCourse();
-        return course.equals(Course.LINEAR) ? "" : " " + messages.getMessage(course.getNameKey());
+        return course.equals(Course.LINEAR) ? "" : " " + getMessages().getMessage(course.getNameKey());
     }
 
-    private String getDirectionXYInstructionText(Messages messages){
-        return " " + messages.getMessage(getBodyPartMovement().getMovementAttributesXY().getDirection().getNameKey());
+    private String getDirectionXYInstructionText(){
+        return " " + getMessages().getMessage(getBodyPartMovement().getMovementAttributesXY().getDirection().getNameKey());
     }
 
-    private String getRotationXYInstructionText(Messages messages){
-        return " " + messages.getMessage(getBodyPartMovement().getMovementAttributesXY().getRotation().getNameKey());
+    private String getRotationXYInstructionText(){
+        return " " + getMessages().getMessage(getBodyPartMovement().getMovementAttributesXY().getRotation().getNameKey());
     }
 
-    private String getWeightOnFloorInstructionText(Messages messages){
+    private String getWeightOnFloorInstructionText(){
         boolean isWithTap = getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.TAP_HEEL) ||
                 getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.TAP_TOE) ||
                 getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.STOMP);
 
-        String beginStr = isWithTap ? getInstructionTextAnd(messages) + " " : getInstructionTextClipBegin(messages) + getInstructionTextAtTheEnd(messages) + " ";
-        String endStr = isWithTap ? "" : getInstructionTextClipEnd(messages);
+        String beginStr = isWithTap ? getInstructionTextAnd() + " " : getInstructionTextClipBegin() + getInstructionTextAtTheEnd() + " ";
+        String endStr = isWithTap ? "" : getInstructionTextClipEnd();
 
-        return " " + beginStr + messages.getMessage(getBodyPartMovement().getWeightOnFloorEnd().getNameKey()) + endStr;
-    }
-
-    private String getInstructionTextAnd(Messages messages){
-        return messages.getMessage(INSTRUCTION_TEXT_PART_KEY_AND);
-    }
-
-    private String getInstructionTextClipBegin(Messages messages){
-        return messages.getMessage(INSTRUCTION_TEXT_PART_KEY_CLIP_BEGIN);
-    }
-
-    private String getInstructionTextClipEnd(Messages messages){
-        return messages.getMessage(INSTRUCTION_TEXT_PART_KEY_CLIP_END);
-    }
-
-    private String getInstructionTextAtTheEnd(Messages messages){
-        return messages.getMessage(INSTRUCTION_TEXT_PART_KEY_AT_THE_END);
+        return " " + beginStr + getMessages().getMessage(getBodyPartMovement().getWeightOnFloorEnd().getNameKey()) + endStr;
     }
 }

@@ -16,7 +16,7 @@ public class DanceOverview {
     private static final String LABEL_MUSIC = "Musik: ";
 
     private Dance dance;
-    private DanceMoveInstructionRow instructionRow;
+    private DanceMoveInstructionText instructionRow;
 
     public DanceOverview(Dance dance){
         this.dance = dance;
