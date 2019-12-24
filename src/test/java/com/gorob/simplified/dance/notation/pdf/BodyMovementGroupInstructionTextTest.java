@@ -9,27 +9,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BodyMovementGroupInstructionTextTest extends AbstractTest {
-    private Messages createMessagesEnglish(){
-        return createMessages("en", "US");
-    }
-
-    private Messages createMessages(String userLanguage, String userCountry){
-        return new Messages(){
-            @Override
-            protected String getUserLanguage() {
-                return userLanguage;
-            }
-
-            @Override
-            protected String getUserCountry() {
-                return userCountry;
-            }
-        };
-    }
-
     @Test
     public void testGetBodyMovementInstructionTexts(){
-        Messages messages = createMessagesEnglish();
+        Messages messages = getTmc().createMessagesEnglish();
 
         BodyMovement bodyMovement1 = getTmc().createBodyMovement(getTmc().createDefaultBodyPartMovementXY(), getTmc().createDefaultBodyPartMovementXY_2());
         BodyMovement bodyMovement2 = getTmc().createBodyMovement(getTmc().createDefaultBodyPartMovementXY_3());

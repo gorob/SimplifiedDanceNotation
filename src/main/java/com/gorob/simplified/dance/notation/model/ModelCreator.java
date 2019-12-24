@@ -4,10 +4,7 @@ import com.gorob.simplified.dance.notation.messages.Messages;
 import com.gorob.simplified.dance.notation.model.dance.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
-import com.gorob.simplified.dance.notation.pdf.BodyMovementGroupInstructionText;
-import com.gorob.simplified.dance.notation.pdf.BodyMovementInstructionText;
-import com.gorob.simplified.dance.notation.pdf.BodyPartMovementInstructionText;
-import com.gorob.simplified.dance.notation.pdf.DanceOverview;
+import com.gorob.simplified.dance.notation.pdf.*;
 
 import java.io.File;
 import java.util.Arrays;
@@ -56,17 +53,13 @@ public class ModelCreator {
         return new DanceMoveDefinitions(dmdFilesFolder);
     }
 
-    public static Dance createDance(String danceTitle, int wall, int count, int startCount, String timeSignature,
+    public static Dance createDance(String danceTitle, int wall, int count, int startCount, TimeSignature timeSignature,
                                     String choreoTitle, String choreoCreator, int choreoYear,
                                     String musicTitle, String musicCreator, int musicYear){
         Dance dance = new Dance(danceTitle, wall, count, startCount, timeSignature);
         dance.addChoreographyMetaInfo(new ChoreographyMetaInfo(choreoTitle, choreoCreator, choreoYear));
         dance.addMusicMetaInfo(new MusicMetaInfo(musicTitle, musicCreator, musicYear));
         return dance;
-    }
-
-    public static DanceOverview createDanceOverview(Dance dance) {
-        return new DanceOverview(dance);
     }
 
     private static DanceMoveDefinition createDanceMoveDefinition(String id, String defaultName){
@@ -85,6 +78,14 @@ public class ModelCreator {
         return new BodyMovement();
     }
 
+    public static DanceOverview createDanceOverview(Dance dance, Messages messages) {
+        return new DanceOverview(dance, messages);
+    }
+
+    public static DanceMoveInstructionText createDanceMoveInstructionText(DanceMoveVariantDefinition danceMoveVariantDefinition, TimeSignature timeSignature, Messages messages) {
+        return new DanceMoveInstructionText(danceMoveVariantDefinition, timeSignature, messages);
+    }
+
     public static BodyMovementGroupInstructionText createBodyMovementGroupInstructionText(BodyMovementGroup bodyMovementGroup, Messages messages) {
         return new BodyMovementGroupInstructionText(bodyMovementGroup, messages);
     }
@@ -96,4 +97,9 @@ public class ModelCreator {
     public static BodyPartMovementInstructionText createBodyPartMovementInstructionText(BodyPartMovement bodyPartMovement, Messages messages) {
         return new BodyPartMovementInstructionText(bodyPartMovement, messages);
     }
+
+    public static TimeSignature createTimeSignature(String signature) {
+        return new TimeSignature(signature);
+    }
+
 }

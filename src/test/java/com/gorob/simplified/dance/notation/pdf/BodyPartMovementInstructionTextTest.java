@@ -9,32 +9,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BodyPartMovementInstructionTextTest extends AbstractTest {
-    private Messages createMessagesGerman(){
-        return createMessages("de", "DE");
-    }
-
-    private Messages createMessagesEnglish(){
-        return createMessages("en", "US");
-    }
-
-    private Messages createMessages(String userLanguage, String userCountry){
-        return new Messages(){
-            @Override
-            protected String getUserLanguage() {
-                return userLanguage;
-            }
-
-            @Override
-            protected String getUserCountry() {
-                return userCountry;
-            }
-        };
-    }
 
     @Test
     public void testGetInstructionText_german(){
-        Messages messages = createMessagesGerman();
-
+        Messages messages = getTmc().createMessagesGerman();
         BodyPartMovementInstructionText instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createDefaultBodyPartMovementXY(), messages);
         assertEquals("RF Schritt nach vorne (am Ende Fuß über dem Boden)", instructionText.getInstructionText());
 
@@ -52,7 +30,7 @@ public class BodyPartMovementInstructionTextTest extends AbstractTest {
 
     @Test
     public void testGetInstructionText_english(){
-        Messages messages = createMessagesEnglish();
+        Messages messages = getTmc().createMessagesEnglish();
 
         BodyPartMovementInstructionText instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createDefaultBodyPartMovementXY(), messages);
         assertEquals("RF step forward (at the end raised foot)", instructionText.getInstructionText());

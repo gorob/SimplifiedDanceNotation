@@ -5,10 +5,7 @@ import com.gorob.simplified.dance.notation.model.ModelCreator;
 import com.gorob.simplified.dance.notation.model.dance.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.*;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
-import com.gorob.simplified.dance.notation.pdf.BodyMovementGroupInstructionText;
-import com.gorob.simplified.dance.notation.pdf.BodyMovementInstructionText;
-import com.gorob.simplified.dance.notation.pdf.BodyPartMovementInstructionText;
-import com.gorob.simplified.dance.notation.pdf.DanceOverview;
+import com.gorob.simplified.dance.notation.pdf.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -110,7 +107,7 @@ public class TestModelCreator {
         File dmdFilesFolder = new File(getClass().getResource("/definitions").getFile());
         DanceMoveDefinitions danceMoveDefinitions = ModelCreator.createDanceMoveDefinitions(dmdFilesFolder);
 
-        Dance dance = ModelCreator.createDance("Shout Shout", 2, 32, 32, "4/4",
+        Dance dance = ModelCreator.createDance("Shout Shout", 2, 32, 32, createTimeSignature("4/4"),
                 "Shout Shout", "Yvonne Zielonka", 2013,
                 "Shout Shout (Knock Yourself Out)", "Rocky Sharpe & The Replays", 2013);
 
@@ -133,8 +130,12 @@ public class TestModelCreator {
         return dance;
     }
 
-    public DanceOverview createDefaultDanceOverview(){
-        return ModelCreator.createDanceOverview(createDefaultDance());
+    public DanceOverview createDefaultDanceOverview(Messages messages){
+        return ModelCreator.createDanceOverview(createDefaultDance(), messages);
+    }
+
+    public DanceMoveInstructionText createDanceMoveInstructionText(DanceMoveVariantDefinition danceMoveVariantDefinition, TimeSignature timeSignature, Messages messages){
+        return ModelCreator.createDanceMoveInstructionText(danceMoveVariantDefinition, timeSignature, messages);
     }
 
     public BodyMovementGroupInstructionText createBodyMovementGroupInstructionText(BodyMovementGroup bodyMovementGroup, Messages messages){
@@ -147,5 +148,35 @@ public class TestModelCreator {
 
     public BodyPartMovementInstructionText createBodyPartMovementInstructionText(BodyPartMovement bodyPartMovement, Messages messages){
         return ModelCreator.createBodyPartMovementInstructionText(bodyPartMovement, messages);
+    }
+
+    public TimeSignature createDefaultTimeSignature(){
+        return createTimeSignature("4/4");
+    }
+
+    public TimeSignature createTimeSignature(String signature){
+        return ModelCreator.createTimeSignature(signature);
+    }
+
+    public Messages createMessagesGerman(){
+        return createMessagesForTest("de", "DE");
+    }
+
+    public Messages createMessagesEnglish(){
+        return createMessagesForTest("en", "US");
+    }
+
+    private Messages createMessagesForTest(String userLanguage, String userCountry){
+        return new Messages(){
+            @Override
+            protected String getUserLanguage() {
+                return userLanguage;
+            }
+
+            @Override
+            protected String getUserCountry() {
+                return userCountry;
+            }
+        };
     }
 }

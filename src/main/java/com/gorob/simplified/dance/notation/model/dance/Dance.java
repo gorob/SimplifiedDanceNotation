@@ -15,11 +15,11 @@ public class Dance {
     private int wall;
     private int count;
     private int startCount;
-    private String timeSignature;
+    private TimeSignature timeSignature;
     private List<AbstractMediaMetaInfo> mediaMetaInfos;
     private List<DanceMoveVariantDefinition> danceMoves;
 
-    public Dance(String title, int wall, int count, int startCount, String timeSignature){
+    public Dance(String title, int wall, int count, int startCount, TimeSignature timeSignature){
         this.title = title;
         this.wall = wall;
         this.count = count;

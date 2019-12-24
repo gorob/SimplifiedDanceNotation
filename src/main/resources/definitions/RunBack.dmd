@@ -5,7 +5,7 @@
     <DanceMoveDefinition id="RunBack" defaultName="Run back">
 
         <DanceMoveVariantDefinition id="RunBackThreeStepsStartWithRF" defaultName="Run back (3 steps, start with RF)">
-            <BodyMovementGroup counts="2">
+            <BodyMovementGroup counts="1">
                 <BodyMovement>
                     <BodyPartMovement bodyPart="right_foot" directionXY="backward" courseXY="linear" distanceXY="mini" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
                 </BodyMovement>
@@ -13,7 +13,9 @@
                 <BodyMovement>
                     <BodyPartMovement bodyPart="left_foot" directionXY="backward" courseXY="linear" distanceXY="mini" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
                 </BodyMovement>
+            </BodyMovementGroup>
 
+            <BodyMovementGroup counts="1">
                 <BodyMovement>
                     <BodyPartMovement bodyPart="right_foot" directionXY="backward" courseXY="linear" distanceXY="mini" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
                 </BodyMovement>

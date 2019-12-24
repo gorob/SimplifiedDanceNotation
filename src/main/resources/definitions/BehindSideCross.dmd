@@ -5,7 +5,7 @@
     <DanceMoveDefinition id="BehindSideCross" defaultName="Behind-Side-Cross">
 
         <DanceMoveVariantDefinition id="BehindSideCrossLeftDirection" defaultName="Behind-Side-Cross (to the left)">
-            <BodyMovementGroup counts="2">
+            <BodyMovementGroup counts="1">
                 <BodyMovement>
                     <BodyPartMovement bodyPart="right_foot" directionXY="left_backward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
                 </BodyMovement>
@@ -13,7 +13,9 @@
                 <BodyMovement>
                     <BodyPartMovement bodyPart="left_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
                 </BodyMovement>
+            </BodyMovementGroup>
 
+            <BodyMovementGroup counts="1">
                 <BodyMovement>
                     <BodyPartMovement bodyPart="right_foot" directionXY="left_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
                 </BodyMovement>
@@ -21,7 +23,7 @@
         </DanceMoveVariantDefinition>
 
         <DanceMoveVariantDefinition id="BehindSideCrossRightDirection" defaultName="Behind-Side-Cross (to the right)">
-            <BodyMovementGroup counts="2">
+            <BodyMovementGroup counts="1">
                 <BodyMovement>
                     <BodyPartMovement bodyPart="left_foot" directionXY="right_backward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
                 </BodyMovement>
@@ -29,7 +31,9 @@
                 <BodyMovement>
                     <BodyPartMovement bodyPart="right_foot" directionXY="close" courseXY="linear" distanceXY="none" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_ball" />
                 </BodyMovement>
+            </BodyMovementGroup>
 
+            <BodyMovementGroup counts="1">
                 <BodyMovement>
                     <BodyPartMovement bodyPart="left_foot" directionXY="right_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="on_whole" />
                 </BodyMovement>

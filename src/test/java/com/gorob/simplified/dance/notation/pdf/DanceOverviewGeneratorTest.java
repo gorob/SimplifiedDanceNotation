@@ -1,6 +1,7 @@
 package com.gorob.simplified.dance.notation.pdf;
 
 import com.gorob.simplified.dance.notation.AbstractTest;
+import com.gorob.simplified.dance.notation.messages.Messages;
 import com.gorob.simplified.dance.notation.parser.movedefinitions.DanceMoveDefinitionsParser;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
@@ -16,12 +17,11 @@ public class DanceOverviewGeneratorTest extends AbstractTest {
 
         DanceMoveDefinitionsParser parser = new DanceMoveDefinitionsParser();
 
-        new DanceOverviewGenerator().generate(getTmc().createDefaultDanceOverview(), pdfErgFile);
+        Messages messages = getTmc().createMessagesGerman();
+        new DanceOverviewGenerator().generate(getTmc().createDefaultDanceOverview(messages), pdfErgFile);
 
         File tmpFile = new File("/tmp", pdfErgFile.getName());
         FileUtils.copyFile(pdfErgFile, tmpFile);
         Desktop.getDesktop().open(tmpFile);
     }
-
-
 }

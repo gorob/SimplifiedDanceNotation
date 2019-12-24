@@ -1,7 +1,9 @@
 package com.gorob.simplified.dance.notation.pdf;
 
+import com.gorob.simplified.dance.notation.messages.Messages;
 import com.gorob.simplified.dance.notation.model.dance.Dance;
 import com.gorob.simplified.dance.notation.model.dance.MediaRef;
+import com.gorob.simplified.dance.notation.model.dance.TimeSignature;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,14 +13,14 @@ import java.util.stream.Collectors;
 
 @Getter(AccessLevel.PROTECTED)
 @EqualsAndHashCode
-public class DanceOverview {
+public class DanceOverview extends AbstractInstructionText {
     private static final String LABEL_CHOREOGRAPHY = "Choreographie: ";
     private static final String LABEL_MUSIC = "Musik: ";
 
     private Dance dance;
-    private DanceMoveInstructionText instructionRow;
 
-    public DanceOverview(Dance dance){
+    public DanceOverview(Dance dance, Messages messages){
+        super(messages);
         this.dance = dance;
     }
 
@@ -42,9 +44,11 @@ public class DanceOverview {
         return getDance().getMusicMetaInfo().getMediaReferences().stream().map(mediaRef -> getMediaRefStr(mediaRef)).collect(Collectors.toList());
     }
 
-
-
     private String getMediaRefStr(MediaRef mediaRef){
         return "   => " + mediaRef.getService().getName() + ": " + mediaRef.getRef();
+    }
+
+    public List<DanceMoveInstructionText> getDanceMoveInstructionTexts(){
+        return getDance().getDanceMoves().stream().map(danceMoveVariantDefinition -> new DanceMoveInstructionText(danceMoveVariantDefinition, new TimeSignature("4/4"), getMessages())).collect(Collectors.toList());
     }
 }
