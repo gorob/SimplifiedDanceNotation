@@ -3,6 +3,7 @@ package com.gorob.simplified.dance.notation.pdf;
 import com.gorob.simplified.dance.notation.AbstractTest;
 import com.gorob.simplified.dance.notation.messages.Messages;
 import com.gorob.simplified.dance.notation.model.dance.Dance;
+import com.gorob.simplified.dance.notation.model.dance.TimeSignature;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.Distance;
 import org.junit.Test;
 

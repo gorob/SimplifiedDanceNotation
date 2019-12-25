@@ -12,7 +12,7 @@ public class BodyMovementInstructionTextTest extends AbstractTest {
     @Test
     public void testGetBodyPartMovementInstructionTexts(){
         Messages messages = getTmc().createMessagesEnglish();
-        BodyMovementInstructionText instructionText = getTmc().createBodyMovementInstructionText(getTmc().createBodyMovement(getTmc().createDefaultBodyPartMovementXY(), getTmc().createDefaultBodyPartMovementXY_2(), getTmc().createDefaultBodyPartMovementXY_3()), messages);
+        BodyMovementInstructionText instructionText = getTmc().createBodyMovementInstructionText(getTmc().createBodyMovement(getTmc().createDefaultBodyPartMovementXY(), getTmc().createDefaultBodyPartMovementXY_2(), getTmc().createDefaultBodyPartMovementXY_3()), "1", messages);
         assertEquals(3, instructionText.getBodyPartMovementInstructionTexts().size());
         assertEquals("RF step forward (at the end raised foot)", instructionText.getBodyPartMovementInstructionTexts().get(0).getInstructionText());
         assertEquals("LF 1/4 turn left (at the end weight on ball)", instructionText.getBodyPartMovementInstructionTexts().get(1).getInstructionText());

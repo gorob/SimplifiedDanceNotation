@@ -13,7 +13,7 @@ public class TimeSignature {
         this.signature = signature;
     }
 
-    protected int getBeatsCountInEachMeasure(){
+    public int getBeatsCountInEachMeasure(){
         String[] split = getSignature().split("/");
         if (split==null || split.length!=2 || split[0]==null || parseIntValue(split[0])==null){
             throw new RuntimeException("TimeSignature not parsable!");
@@ -21,7 +21,7 @@ public class TimeSignature {
         return parseIntValue(split[0]);
     }
 
-    protected int getNoteValueForOneBeat(){
+    public int getNoteValueForOneBeat(){
         String[] split = getSignature().split("/");
         if (split==null || split.length!=2 || split[1]==null || parseIntValue(split[1])==null){
             throw new RuntimeException("TimeSignature not parsable!");

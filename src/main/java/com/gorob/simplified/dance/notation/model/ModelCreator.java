@@ -86,12 +86,12 @@ public class ModelCreator {
         return new DanceMoveInstructionText(danceMoveVariantDefinition, timeSignature, messages);
     }
 
-    public static BodyMovementGroupInstructionText createBodyMovementGroupInstructionText(BodyMovementGroup bodyMovementGroup, Messages messages) {
-        return new BodyMovementGroupInstructionText(bodyMovementGroup, messages);
+    public static BodyMovementGroupInstructionText createBodyMovementGroupInstructionText(BodyMovementGroup bodyMovementGroup, TimeSignature timeSignature, Messages messages) {
+        return new BodyMovementGroupInstructionText(bodyMovementGroup, timeSignature, messages);
     }
 
-    public static BodyMovementInstructionText createBodyMovementInstructionText(BodyMovement bodyMovement, Messages messages) {
-        return new BodyMovementInstructionText(bodyMovement, messages);
+    public static BodyMovementInstructionText createBodyMovementInstructionText(BodyMovement bodyMovement, String countSyllable, Messages messages) {
+        return new BodyMovementInstructionText(bodyMovement, countSyllable, messages);
     }
 
     public static BodyPartMovementInstructionText createBodyPartMovementInstructionText(BodyPartMovement bodyPartMovement, Messages messages) {

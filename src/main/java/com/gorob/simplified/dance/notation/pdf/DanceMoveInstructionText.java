@@ -26,7 +26,7 @@ public class DanceMoveInstructionText extends AbstractInstructionText {
     }
 
     public List<BodyMovementGroupInstructionText> getBodyMovementGroupInstructionTexts() {
-        return getDanceMoveVariantDefinition().getBodyMovementGroups().stream().map(bodyMovementGroup -> new BodyMovementGroupInstructionText(bodyMovementGroup, getMessages())).collect(Collectors.toList());
+        return getDanceMoveVariantDefinition().getBodyMovementGroups().stream().map(bodyMovementGroup -> new BodyMovementGroupInstructionText(bodyMovementGroup, getTimeSignature(), getMessages())).collect(Collectors.toList());
     }
 
 }

@@ -14,9 +14,13 @@ import java.util.stream.Collectors;
 public class BodyMovementInstructionText extends AbstractInstructionText {
     private BodyMovement bodyMovement;
 
-    public BodyMovementInstructionText(BodyMovement bodyMovement, Messages messages){
+    @Getter(AccessLevel.PUBLIC)
+    private String countSyllable;
+
+    public BodyMovementInstructionText(BodyMovement bodyMovement, String countSyllable, Messages messages){
         super(messages);
         this.bodyMovement = bodyMovement;
+        this.countSyllable = countSyllable;
     }
 
     public List<BodyPartMovementInstructionText> getBodyPartMovementInstructionTexts() {

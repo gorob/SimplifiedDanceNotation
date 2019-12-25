@@ -26,6 +26,16 @@ public class BodyPartMovementInstructionTextTest extends AbstractTest {
         MovementAttributes movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
         instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.TAP_HEEL), messages);
         assertEquals("RF Schritt nach rechts vorne und mit Ferse auftippen", instructionText.getInstructionText());
+
+        movementAttributesXY = getTmc().createMovementAttributes(Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE);
+        movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
+        instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.RAISED), messages);
+        assertEquals("RF heranziehen (am Ende Fuß über dem Boden)", instructionText.getInstructionText());
+
+        movementAttributesXY = getTmc().createMovementAttributes(Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE);
+        movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
+        instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.ON_WHOLE), messages);
+        assertEquals("RF heransetzen (am Ende Gewicht auf gesamtem Fuß)", instructionText.getInstructionText());
     }
 
     @Test
@@ -45,5 +55,15 @@ public class BodyPartMovementInstructionTextTest extends AbstractTest {
         MovementAttributes movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
         instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.TAP_HEEL), messages);
         assertEquals("RF step right forward and tap with heel", instructionText.getInstructionText());
+
+        movementAttributesXY = getTmc().createMovementAttributes(Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE);
+        movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
+        instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.RAISED), messages);
+        assertEquals("RF close to body (at the end raised foot)", instructionText.getInstructionText());
+
+        movementAttributesXY = getTmc().createMovementAttributes(Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE);
+        movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
+        instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.ON_WHOLE), messages);
+        assertEquals("RF close to body (at the end weight on whole foot)", instructionText.getInstructionText());
     }
 }

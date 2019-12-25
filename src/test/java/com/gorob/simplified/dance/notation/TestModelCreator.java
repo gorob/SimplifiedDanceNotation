@@ -138,12 +138,12 @@ public class TestModelCreator {
         return ModelCreator.createDanceMoveInstructionText(danceMoveVariantDefinition, timeSignature, messages);
     }
 
-    public BodyMovementGroupInstructionText createBodyMovementGroupInstructionText(BodyMovementGroup bodyMovementGroup, Messages messages){
-        return ModelCreator.createBodyMovementGroupInstructionText(bodyMovementGroup, messages);
+    public BodyMovementGroupInstructionText createBodyMovementGroupInstructionText(BodyMovementGroup bodyMovementGroup, TimeSignature timeSignature, Messages messages){
+        return ModelCreator.createBodyMovementGroupInstructionText(bodyMovementGroup, timeSignature, messages);
     }
 
-    public BodyMovementInstructionText createBodyMovementInstructionText(BodyMovement bodyMovement, Messages messages){
-        return ModelCreator.createBodyMovementInstructionText(bodyMovement, messages);
+    public BodyMovementInstructionText createBodyMovementInstructionText(BodyMovement bodyMovement, String countSyllable, Messages messages){
+        return ModelCreator.createBodyMovementInstructionText(bodyMovement, countSyllable, messages);
     }
 
     public BodyPartMovementInstructionText createBodyPartMovementInstructionText(BodyPartMovement bodyPartMovement, Messages messages){
