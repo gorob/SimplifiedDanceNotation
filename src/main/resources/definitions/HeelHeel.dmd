@@ -7,9 +7,9 @@
         <DanceMoveVariantDefinition id="HeelHeelLeftWithHands" defaultName="Heel, Heel (LF) with Hands">
             <BodyMovementGroup counts="1">
                 <BodyMovement>
-                    <BodyPartMovement bodyPart="left_foot" directionXY="left_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
-                    <BodyPartMovement bodyPart="left_hand" directionXY="left_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
-                    <BodyPartMovement bodyPart="right_hand" directionXY="left_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                    <BodyPartMovement bodyPart="left_foot" directionXY="left_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
+                    <BodyPartMovement bodyPart="left_hand" directionXY="left_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                    <BodyPartMovement bodyPart="right_hand" directionXY="left_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
                 </BodyMovement>
 
                 <BodyMovement>
@@ -21,9 +21,9 @@
 
             <BodyMovementGroup counts="1">
                 <BodyMovement>
-                    <BodyPartMovement bodyPart="left_foot" directionXY="left_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
-                    <BodyPartMovement bodyPart="left_hand" directionXY="left_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
-                    <BodyPartMovement bodyPart="right_hand" directionXY="left_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                    <BodyPartMovement bodyPart="left_foot" directionXY="left_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
+                    <BodyPartMovement bodyPart="left_hand" directionXY="left_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                    <BodyPartMovement bodyPart="right_hand" directionXY="left_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
                 </BodyMovement>
 
                 <BodyMovement>
@@ -38,9 +38,9 @@
         <DanceMoveVariantDefinition id="HeelHeelRightWithHands" defaultName="Heel, Heel (RF) with Hands">
             <BodyMovementGroup counts="1">
                 <BodyMovement>
-                    <BodyPartMovement bodyPart="right_foot" directionXY="right_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
-                    <BodyPartMovement bodyPart="left_hand" directionXY="right_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
-                    <BodyPartMovement bodyPart="right_hand" directionXY="right_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                    <BodyPartMovement bodyPart="right_foot" directionXY="right_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
+                    <BodyPartMovement bodyPart="left_hand" directionXY="right_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                    <BodyPartMovement bodyPart="right_hand" directionXY="right_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
                 </BodyMovement>
 
                 <BodyMovement>
@@ -52,9 +52,9 @@
 
             <BodyMovementGroup counts="1">
                 <BodyMovement>
-                    <BodyPartMovement bodyPart="right_foot" directionXY="right_forward" courseXY="linear" distanceXY="small" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
-                    <BodyPartMovement bodyPart="left_hand" directionXY="right_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
-                    <BodyPartMovement bodyPart="right_hand" directionXY="right_forward" courseXY="linear" distanceXY="large" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                    <BodyPartMovement bodyPart="right_foot" directionXY="right_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="none" courseZ="none" distanceZ="none" rotationZ="none" weightOnFloorEnd="tap_heel" />
+                    <BodyPartMovement bodyPart="left_hand" directionXY="right_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
+                    <BodyPartMovement bodyPart="right_hand" directionXY="right_forward" courseXY="linear" distanceXY="medium" rotationXY="none" directionZ="up" courseZ="linear" distanceZ="large" rotationZ="none" weightOnFloorEnd="none"/>
                 </BodyMovement>
 
                 <BodyMovement>

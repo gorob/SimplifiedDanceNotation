@@ -27,6 +27,11 @@ public class BodyPartMovementInstructionTextTest extends AbstractTest {
         instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.TAP_HEEL), messages);
         assertEquals("RF Schritt nach rechts vorne und mit Ferse auftippen", instructionText.getInstructionText());
 
+        movementAttributesXY = getTmc().createMovementAttributes(Direction.RIGHT_FORWARD, Course.LINEAR, Distance.SMALL, Rotation.NONE);
+        movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
+        instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_HAND, movementAttributesXY, movementAttributesZ, WeightOnFloor.NONE), messages);
+        assertEquals("RH kleine Bewegung nach rechts vorne", instructionText.getInstructionText());
+
         movementAttributesXY = getTmc().createMovementAttributes(Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE);
         movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
         instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.RAISED), messages);
@@ -55,6 +60,11 @@ public class BodyPartMovementInstructionTextTest extends AbstractTest {
         MovementAttributes movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
         instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.TAP_HEEL), messages);
         assertEquals("RF step right forward and tap with heel", instructionText.getInstructionText());
+
+        movementAttributesXY = getTmc().createMovementAttributes(Direction.RIGHT_FORWARD, Course.LINEAR, Distance.SMALL, Rotation.NONE);
+        movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();
+        instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_HAND, movementAttributesXY, movementAttributesZ, WeightOnFloor.NONE), messages);
+        assertEquals("RH small movement right forward", instructionText.getInstructionText());
 
         movementAttributesXY = getTmc().createMovementAttributes(Direction.CLOSE, Course.LINEAR, Distance.NONE, Rotation.NONE);
         movementAttributesZ = getTmc().createDefaultMovementAttributesZ_none();

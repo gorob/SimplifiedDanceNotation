@@ -9,6 +9,8 @@ import lombok.Getter;
 @Getter(AccessLevel.PRIVATE)
 public class BodyPartMovementInstructionText extends AbstractInstructionText {
     private static final String SPECIAL_TEXT_CLOSE_RAISED_KEY = "DIRECTION_CLOSE_RAISED";
+    private static final String BODY_PART_TYPE_STR_FOOT = "FOOT";
+    private static final String BODY_PART_TYPE_STR_HAND = "HAND";
     private BodyPartMovement bodyPartMovement;
 
     public BodyPartMovementInstructionText(BodyPartMovement bodyPartMovement, Messages messages){
@@ -64,6 +66,14 @@ public class BodyPartMovementInstructionText extends AbstractInstructionText {
                 getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.STOMP);
     }
 
+    private boolean isBodyPartFoot(){
+        return getBodyPartMovement().getBodyPart().isFoot();
+    }
+
+    private boolean isBodyPartHand(){
+        return getBodyPartMovement().getBodyPart().isHand();
+    }
+
     private String getBodyPartInstructionText(){
         return getMessage(getBodyPartShortNameKey());
     }
@@ -81,7 +91,7 @@ public class BodyPartMovementInstructionText extends AbstractInstructionText {
     }
 
     private String getDirectionCloseXYInstructionText(){
-        if (isRaisedAtTheEnd()){
+        if (isBodyPartHand() || (isBodyPartFoot() && isRaisedAtTheEnd())){
             return " " + getMessage(getDirectionCloseAndWeightOnFloorEndRaisedMessageKey());
         }
 
@@ -115,12 +125,23 @@ public class BodyPartMovementInstructionText extends AbstractInstructionText {
         return BodyPart.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getBodyPart().name() + "_SHORT";
     }
 
+    private String getBodyPartTypeKeyName(){
+        String bodyPartClassName = BodyPart.class.getSimpleName().toUpperCase() + "_";
+        if (isBodyPartFoot()){
+            return bodyPartClassName + BODY_PART_TYPE_STR_FOOT;
+        }
+        if (isBodyPartHand()) {
+            return bodyPartClassName + BODY_PART_TYPE_STR_HAND;
+        }
+        return "";
+    }
+
     private String getDirectionMessageKey(){
         return Direction.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getMovementAttributesXY().getDirection().name();
     }
 
     private String getDistanceMessageKey(){
-        return Distance.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getMovementAttributesXY().getDistance().name();
+        return Distance.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getMovementAttributesXY().getDistance().name() + "_" + getBodyPartTypeKeyName();
     }
 
     private String getCourseMessageKey(){

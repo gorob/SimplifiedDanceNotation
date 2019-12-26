@@ -8,4 +8,12 @@ public enum BodyPart {
     RIGHT_FOOT,
     LEFT_HAND,
     RIGHT_HAND;
+
+    public boolean isFoot(){
+        return this.equals(LEFT_FOOT) || this.equals(RIGHT_FOOT);
+    }
+
+    public boolean isHand(){
+        return this.equals(LEFT_HAND) || this.equals(RIGHT_HAND);
+    }
 }
