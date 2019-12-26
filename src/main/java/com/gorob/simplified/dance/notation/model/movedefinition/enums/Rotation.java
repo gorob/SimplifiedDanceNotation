@@ -4,17 +4,10 @@ import lombok.Getter;
 
 @Getter
 public enum Rotation {
-    NONE(""),
-
-    EIGHTH_TURN( "ROTATION_45"),
-    QUARTER_TURN( "ROTATION_90"),
-    HALF_TURN( "ROTATION_180"),
-    THREE_QUARTER_TURN( "ROTATION_270"),
-    FULL_TURN("ROTATION_360");
-
-    private String nameKey;
-
-    Rotation(String nameKey){
-        this.nameKey = nameKey;
-    }
+    NONE,
+    EIGHTH_TURN,
+    QUARTER_TURN,
+    HALF_TURN,
+    THREE_QUARTER_TURN,
+    FULL_TURN;
 }

@@ -2,15 +2,9 @@ package com.gorob.simplified.dance.notation.pdf;
 
 import com.gorob.simplified.dance.notation.messages.Messages;
 import com.gorob.simplified.dance.notation.model.movedefinition.BodyPartMovement;
-import com.gorob.simplified.dance.notation.model.movedefinition.enums.Course;
-import com.gorob.simplified.dance.notation.model.movedefinition.enums.Direction;
-import com.gorob.simplified.dance.notation.model.movedefinition.enums.Rotation;
-import com.gorob.simplified.dance.notation.model.movedefinition.enums.WeightOnFloor;
+import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
 import lombok.AccessLevel;
 import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter(AccessLevel.PRIVATE)
 public class BodyPartMovementInstructionText extends AbstractInstructionText {
@@ -56,47 +50,88 @@ public class BodyPartMovementInstructionText extends AbstractInstructionText {
         return !getBodyPartMovement().getMovementAttributesXY().getRotation().equals(Rotation.NONE);
     }
 
+    private boolean isCourseLinear(){
+        return getBodyPartMovement().getMovementAttributesXY().getCourse().equals(Course.LINEAR);
+    }
+
+    private boolean isWeightOnFloorEndNone(){
+        return getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.NONE);
+    }
+
+    private boolean isWeightOnFloorEndWithTap(){
+        return getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.TAP_HEEL) ||
+                getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.TAP_TOE) ||
+                getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.STOMP);
+    }
+
     private String getBodyPartInstructionText(){
-        return getMessages().getMessage(getBodyPartMovement().getBodyPart().getShortNameKey());
+        return getMessage(getBodyPartShortNameKey());
     }
 
     private String getDistanceXYInstructionText(){
-        return " " + getMessages().getMessage(getBodyPartMovement().getMovementAttributesXY().getDistance().getNameKey());
+        return " " + getMessage(getDistanceMessageKey());
     }
 
     private String getCourseXYInstructionText(){
-        Course course = getBodyPartMovement().getMovementAttributesXY().getCourse();
-        return course.equals(Course.LINEAR) ? "" : " " + getMessages().getMessage(course.getNameKey());
+        return isCourseLinear() ? "" : " " + getMessage(getCourseMessageKey());
     }
 
     private String getDirectionXYInstructionText(){
-        return " " + getMessages().getMessage(getBodyPartMovement().getMovementAttributesXY().getDirection().getNameKey());
+        return " " + getMessage(getDirectionMessageKey());
     }
 
     private String getDirectionCloseXYInstructionText(){
         if (isRaisedAtTheEnd()){
-            return " " + getMessages().getMessage(SPECIAL_TEXT_CLOSE_RAISED_KEY);
+            return " " + getMessage(getDirectionCloseAndWeightOnFloorEndRaisedMessageKey());
         }
 
         return getDirectionXYInstructionText();
     }
 
     private String getRotationXYInstructionText(){
-        return " " + getMessages().getMessage(getBodyPartMovement().getMovementAttributesXY().getRotation().getNameKey());
+        return " " + getMessage(getRotationMessageKey());
     }
 
     private String getWeightOnFloorInstructionText(){
-        if (getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.NONE)){
+        if (isWeightOnFloorEndNone()){
             return "";
         }
 
-        boolean isWithTap = getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.TAP_HEEL) ||
-                getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.TAP_TOE) ||
-                getBodyPartMovement().getWeightOnFloorEnd().equals(WeightOnFloor.STOMP);
+        String beginStr = isWeightOnFloorEndWithTap() ? getInstructionTextAnd() + " " : getInstructionTextClipBegin() + getInstructionTextAtTheEnd() + " ";
+        String endStr = isWeightOnFloorEndWithTap() ? "" : getInstructionTextClipEnd();
 
-        String beginStr = isWithTap ? getInstructionTextAnd() + " " : getInstructionTextClipBegin() + getInstructionTextAtTheEnd() + " ";
-        String endStr = isWithTap ? "" : getInstructionTextClipEnd();
+        return " " + beginStr + getMessage(getWeightOnFloorEndMessageKey()) + endStr;
+    }
 
-        return " " + beginStr + getMessages().getMessage(getBodyPartMovement().getWeightOnFloorEnd().getNameKey()) + endStr;
+    private String getMessage(String key){
+        return getMessages().getMessage(key);
+    }
+
+    private String getDirectionCloseAndWeightOnFloorEndRaisedMessageKey(){
+        return SPECIAL_TEXT_CLOSE_RAISED_KEY;
+    }
+
+    private String getBodyPartShortNameKey(){
+        return BodyPart.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getBodyPart().name() + "_SHORT";
+    }
+
+    private String getDirectionMessageKey(){
+        return Direction.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getMovementAttributesXY().getDirection().name();
+    }
+
+    private String getDistanceMessageKey(){
+        return Distance.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getMovementAttributesXY().getDistance().name();
+    }
+
+    private String getCourseMessageKey(){
+        return Course.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getMovementAttributesXY().getCourse().name();
+    }
+
+    private String getRotationMessageKey(){
+        return Rotation.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getMovementAttributesXY().getRotation().name();
+    }
+
+    private String getWeightOnFloorEndMessageKey(){
+        return WeightOnFloor.class.getSimpleName().toUpperCase() + "_" + getBodyPartMovement().getWeightOnFloorEnd().name();
     }
 }
