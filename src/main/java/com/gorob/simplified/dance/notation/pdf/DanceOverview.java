@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class DanceOverview extends AbstractInstructionText {
     private static final String LABEL_CHOREOGRAPHY = "Choreographie: ";
     private static final String LABEL_MUSIC = "Musik: ";
+    private static final String INSTRUCTION_SECTION_TITLE = "Tanz-Anweisungen:";
 
     private Dance dance;
 
@@ -32,20 +33,20 @@ public class DanceOverview extends AbstractInstructionText {
         return LABEL_CHOREOGRAPHY + getDance().getChoreographyMetaInfo().getCreatorName() + " (" + getDance().getChoreographyMetaInfo().getYear() + ")";
     }
 
-    public List<String> getChoreographyMediaRefs(){
-        return getDance().getChoreographyMetaInfo().getMediaReferences().stream().map(mediaRef -> getMediaRefStr(mediaRef)).collect(Collectors.toList());
+    public List<MediaRef> getChoreographyMediaRefs(){
+        return getDance().getChoreographyMetaInfo().getMediaReferences();
     }
 
     public String getMusicTitle(){
         return LABEL_MUSIC + getDance().getMusicMetaInfo().getTitle() + " von " + getDance().getMusicMetaInfo().getCreatorName() + " (" + getDance().getMusicMetaInfo().getYear() + ")";
     }
 
-    public List<String> getMusicMediaRefs() {
-        return getDance().getMusicMetaInfo().getMediaReferences().stream().map(mediaRef -> getMediaRefStr(mediaRef)).collect(Collectors.toList());
+    public List<MediaRef> getMusicMediaRefs() {
+        return getDance().getMusicMetaInfo().getMediaReferences();
     }
 
-    private String getMediaRefStr(MediaRef mediaRef){
-        return "   => " + mediaRef.getService().getName() + ": " + mediaRef.getRef();
+    public String getDanceInstructionsTitle(){
+        return INSTRUCTION_SECTION_TITLE;
     }
 
     public List<DanceMoveInstructionText> getDanceMoveInstructionTexts(){

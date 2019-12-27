@@ -2,6 +2,7 @@ package com.gorob.simplified.dance.notation.pdf;
 
 import com.gorob.simplified.dance.notation.AbstractTest;
 import com.gorob.simplified.dance.notation.messages.Messages;
+import com.gorob.simplified.dance.notation.model.dance.MediaRef;
 import org.junit.Test;
 
 import java.util.List;
@@ -35,9 +36,10 @@ public class DanceOverviewTest extends AbstractTest {
     @Test
     public void testGetChoreographyMediaRefs(){
         DanceOverview danceOverview = createUnderTest();
-        List<String> choreographyMediaRefs = danceOverview.getChoreographyMediaRefs();
+        List<MediaRef> choreographyMediaRefs = danceOverview.getChoreographyMediaRefs();
         assertEquals(1, choreographyMediaRefs.size());
-        assertEquals("   => Youtube: https://www.youtube.com/watch?v=rouN3dS0A60", choreographyMediaRefs.get(0));
+        assertEquals("Youtube", choreographyMediaRefs.get(0).getService().getName());
+        assertEquals("https://www.youtube.com/watch?v=rouN3dS0A60", choreographyMediaRefs.get(0).getRef());
     }
 
     @Test
@@ -49,8 +51,9 @@ public class DanceOverviewTest extends AbstractTest {
     @Test
     public void testGetMusicMediaRefs(){
         DanceOverview danceOverview = createUnderTest();
-        List<String> musicMediaRefs = danceOverview.getMusicMediaRefs();
+        List<MediaRef> musicMediaRefs = danceOverview.getMusicMediaRefs();
         assertEquals(1, musicMediaRefs.size());
-        assertEquals("   => Amazon Music: https://music.amazon.de/albums/B00AVH7D0M?trackAsin=B00AVH7H2Q&amp;ref=dm_sh_Ez04ftdT9VtzX7rxs97sOMqlH", musicMediaRefs.get(0));
+        assertEquals("Amazon Music", musicMediaRefs.get(0).getService().getName());
+        assertEquals("https://music.amazon.de/albums/B00AVH7D0M?trackAsin=B00AVH7H2Q&amp;ref=dm_sh_Ez04ftdT9VtzX7rxs97sOMqlH", musicMediaRefs.get(0).getRef());
     }
 }

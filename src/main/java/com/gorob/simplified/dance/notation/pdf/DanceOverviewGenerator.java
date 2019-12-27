@@ -1,5 +1,6 @@
 package com.gorob.simplified.dance.notation.pdf;
 
+import com.gorob.simplified.dance.notation.model.dance.MediaRef;
 import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.Phrase;
@@ -8,76 +9,76 @@ import com.lowagie.text.pdf.PdfPTable;
 import lombok.AccessLevel;
 import lombok.Getter;
 
+import java.awt.*;
 import java.util.List;
 
 @Getter(AccessLevel.PRIVATE)
 public class DanceOverviewGenerator extends AbstractPDFCreator<DanceOverview> {
+    public DanceOverviewGenerator(){
+        this(FontFactory.HELVETICA, 10);
+    }
+
+    public DanceOverviewGenerator(String defaultFontName, int defaultFontSize){
+        super(defaultFontName, defaultFontSize);
+    }
+
     @Override
     protected void createAndAddContent(DanceOverview model) {
         addTitleSection(model);
+
         addChoreographySection(model);
+        addNewLine();
+
         addMusicSection(model);
+        addNewLine();
 
         addInstructionSection(model);
     }
 
     private void addTitleSection(DanceOverview danceOverview){
-        addTextParagraph(danceOverview.getTitle(), FontFactory.HELVETICA, 20, Font.BOLD);
+        addMainTitle(danceOverview.getTitle());
     }
 
     private void addChoreographySection(DanceOverview danceOverview){
-        addTextParagraph(danceOverview.getChoreographyTitle(), FontFactory.HELVETICA, 14, Font.NORMAL);
-        addMediaRefs(danceOverview.getChoreographyMediaRefs());
+        addMediaSection(danceOverview.getChoreographyTitle(), danceOverview.getChoreographyMediaRefs());
     }
 
     private void addMusicSection(DanceOverview danceOverview){
-        addTextParagraph(danceOverview.getMusicTitle(), FontFactory.HELVETICA, 14, Font.NORMAL);
-        addMediaRefs(danceOverview.getMusicMediaRefs());
+        addMediaSection(danceOverview.getMusicTitle(), danceOverview.getMusicMediaRefs());
     }
 
-    private void addMediaRefs(List<String> mediaRefs){
+    private void addMediaSection(String mediaSectionTitle, List<MediaRef> mediaRefs){
+        addSubTitle(mediaSectionTitle);
+        addMediaReferenceTable(mediaRefs);
+    }
+
+    private void addMediaReferenceTable(List<MediaRef> mediaRefs){
+        PdfPTable table = createTable(2, 18, 82);
         mediaRefs.forEach(mediaRef -> {
-            addTextParagraph(mediaRef, FontFactory.HELVETICA, 10, Font.NORMAL);
+            addTableCells(table, Font.BOLD, mediaRef.getService().getName());
+            addTableCells(table, mediaRef.getRef());
         });
+        addTable(table);
     }
 
-    private void addInstructionSection(DanceOverview model) {
-        DanceMoveInstructionText danceMoveInstructionText = model.getDanceMoveInstructionTexts().get(0);
+    private void addInstructionSection(DanceOverview danceOverview) {
+        addSubTitle(danceOverview.getDanceInstructionsTitle());
 
-        PdfPTable table = new PdfPTable(2);
-        table.setWidthPercentage(100);
-        // setting column widths
-        table.setWidths(new float[] {1, 10});
+        PdfPTable table = createTable(2, 1, 10);
 
-        PdfPCell cell = new PdfPCell();
-        cell.setPhrase(new Phrase("Count", createFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
-        table.addCell(cell);
+        addTableCells(table, Font.BOLD, "Count", "Instruction");
 
-        cell = new PdfPCell();
-        cell.setPhrase(new Phrase("Instruction", createFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
-        table.addCell(cell);
-
+        DanceMoveInstructionText danceMoveInstructionText = danceOverview.getDanceMoveInstructionTexts().get(0);
         addBodyMovementInstruction(table, danceMoveInstructionText.getBodyMovementGroupInstructionTexts().get(0).getBodyMovementInstructionTexts().get(0));
         addBodyMovementInstruction(table, danceMoveInstructionText.getBodyMovementGroupInstructionTexts().get(0).getBodyMovementInstructionTexts().get(1));
         addBodyMovementInstruction(table, danceMoveInstructionText.getBodyMovementGroupInstructionTexts().get(1).getBodyMovementInstructionTexts().get(0));
         addBodyMovementInstruction(table, danceMoveInstructionText.getBodyMovementGroupInstructionTexts().get(1).getBodyMovementInstructionTexts().get(1));
 
-        getPdfDocument().add(table);
-
-
+        addTable(table);
     }
 
-
     private void addBodyMovementInstruction(PdfPTable table, BodyMovementInstructionText bodyMovementInstructionText){
-        String countStr = "1";
-
-        PdfPCell cell = new PdfPCell();
-        cell.setPhrase(new Phrase(countStr, createFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
-        table.addCell(cell);
-
-        cell = new PdfPCell();
-        cell.setPhrase(new Phrase(bodyMovementInstructionText.getText(), createFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
-        table.addCell(cell);
+        addTableCells(table, "1", bodyMovementInstructionText.getText());
     }
 
 }
