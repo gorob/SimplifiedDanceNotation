@@ -71,15 +71,12 @@ public class DanceOverviewGenerator extends AbstractPDFCreator<DanceOverview> {
     private void addBodyMovementInstruction(PdfPTable table, BodyMovementInstructionText bodyMovementInstructionText){
         String countStr = "1";
 
-        StringBuffer instructionText = new StringBuffer();
-        bodyMovementInstructionText.getBodyPartMovementInstructionTexts().forEach(bodyPartMovementInstructionText -> instructionText.append(bodyPartMovementInstructionText.getInstructionText()).append("; "));
-
         PdfPCell cell = new PdfPCell();
         cell.setPhrase(new Phrase(countStr, createFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
         table.addCell(cell);
 
         cell = new PdfPCell();
-        cell.setPhrase(new Phrase(instructionText.toString(), createFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
+        cell.setPhrase(new Phrase(bodyMovementInstructionText.getText(), createFont(FontFactory.HELVETICA, 10, Font.NORMAL)));
         table.addCell(cell);
     }
 

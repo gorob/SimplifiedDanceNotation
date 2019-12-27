@@ -4,9 +4,12 @@ import com.gorob.simplified.dance.notation.messages.Messages;
 import com.gorob.simplified.dance.notation.model.movedefinition.BodyPartMovement;
 import com.gorob.simplified.dance.notation.model.movedefinition.enums.*;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter(AccessLevel.PRIVATE)
+@EqualsAndHashCode
 public class BodyPartMovementInstructionText extends AbstractInstructionText {
     private static final String SPECIAL_TEXT_CLOSE_RAISED_KEY = "DIRECTION_CLOSE_RAISED";
     private static final String BODY_PART_TYPE_STR_FOOT = "FOOT";
@@ -19,7 +22,16 @@ public class BodyPartMovementInstructionText extends AbstractInstructionText {
     }
 
     public String getInstructionText(){
-        return getBodyPartInstructionText() + getMoveInstructionText() + getWeightOnFloorInstructionText();
+        return getBodyPartInstructionText() + getNonBodyPartInstructionText();
+    }
+
+    @Override
+    public String toString(){
+        return getInstructionText();
+    }
+
+    public String getNonBodyPartInstructionText(){
+        return getMoveInstructionText() + getWeightOnFloorInstructionText();
     }
 
     private String getMoveInstructionText(){
@@ -74,7 +86,11 @@ public class BodyPartMovementInstructionText extends AbstractInstructionText {
         return getBodyPartMovement().getBodyPart().isHand();
     }
 
-    private String getBodyPartInstructionText(){
+    public boolean belongsToBodyPartGroup(BodyPartGroup bodyPartGroup){
+        return getBodyPartMovement().getBodyPart().getBodyPartGroup().equals(bodyPartGroup);
+    }
+
+    public String getBodyPartInstructionText(){
         return getMessage(getBodyPartShortNameKey());
     }
 

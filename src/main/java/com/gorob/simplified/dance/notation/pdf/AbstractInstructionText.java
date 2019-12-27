@@ -19,7 +19,7 @@ public abstract class AbstractInstructionText {
         this.messages = messages;
     }
 
-    protected String getInstructionTextAnd(){
+    public String getInstructionTextAnd(){
         return getMessages().getMessage(INSTRUCTION_TEXT_PART_KEY_AND);
     }
 

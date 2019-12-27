@@ -76,4 +76,40 @@ public class BodyPartMovementInstructionTextTest extends AbstractTest {
         instructionText = getTmc().createBodyPartMovementInstructionText(getTmc().createBodyPartMovement(BodyPart.RIGHT_FOOT, movementAttributesXY, movementAttributesZ, WeightOnFloor.ON_WHOLE), messages);
         assertEquals("RF close to body (at the end weight on whole foot)", instructionText.getInstructionText());
     }
+
+    @Test
+    public void testEquals() {
+        Messages messages = getTmc().createMessagesEnglish();
+
+        BodyPartMovementInstructionText instructionText1 = getTmc().createBodyPartMovementInstructionText(getTmc().createDefaultBodyPartMovementXY(), messages);
+        assertEquals("RF step forward (at the end raised foot)", instructionText1.getInstructionText());
+
+        BodyPartMovementInstructionText instructionText2 = getTmc().createBodyPartMovementInstructionText(getTmc().createDefaultBodyPartMovementXY(), messages);
+        assertEquals("RF step forward (at the end raised foot)", instructionText2.getInstructionText());
+
+        assertEquals(instructionText1, instructionText1);
+        assertEquals(instructionText2, instructionText2);
+        assertEquals(instructionText1, instructionText2);
+        assertEquals(instructionText2, instructionText1);
+
+        BodyPartMovementInstructionText instructionText3 = getTmc().createBodyPartMovementInstructionText(getTmc().createDefaultBodyPartMovementXY_2(), messages);
+        assertEquals("LF 1/4 turn left (at the end weight on ball)", instructionText3.getInstructionText());
+
+        BodyPartMovementInstructionText instructionText4 = getTmc().createBodyPartMovementInstructionText(getTmc().createDefaultBodyPartMovementXY_2(), messages);
+        assertEquals("LF 1/4 turn left (at the end weight on ball)", instructionText4.getInstructionText());
+
+        assertEquals(instructionText3, instructionText3);
+        assertEquals(instructionText4, instructionText4);
+        assertEquals(instructionText3, instructionText4);
+        assertEquals(instructionText4, instructionText3);
+
+        assertNotEquals(instructionText1, instructionText3);
+        assertNotEquals(instructionText1, instructionText4);
+        assertNotEquals(instructionText2, instructionText3);
+        assertNotEquals(instructionText2, instructionText4);
+        assertNotEquals(instructionText3, instructionText1);
+        assertNotEquals(instructionText3, instructionText2);
+        assertNotEquals(instructionText4, instructionText1);
+        assertNotEquals(instructionText4, instructionText2);
+    }
 }
